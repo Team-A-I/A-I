@@ -1,5 +1,5 @@
 ---
-name: "[HOTPIX] 생성 템플릿"
+name: "[HOTFIX] 생성 템플릿"
 about: 해당 이슈 생성 템플릿을 사용하여 이슈를 생성해주세요.
 title: HOTFIX / 이름 / 이슈제목
 labels: ''
