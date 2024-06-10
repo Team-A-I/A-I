@@ -12,7 +12,7 @@
 ## 브런치 전략
 
 - Git Flow 를 기반으로 Github 을 활용한 Github Flow 를 선호
-- Git Flow → https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html
+- Git Flow → [https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html](https://velog.io/@kw2577/Git-branch-%EC%A0%84%EB%9E%B5)
 
 ## Code Convention
 
