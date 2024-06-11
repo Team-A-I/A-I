@@ -18,4 +18,4 @@ async def text(text: str = Form()):
     result = classifier(text)
 
     # STEP 55. visualrize
-    return {"result": result}
+    return {"result": result}asdasdasdas
