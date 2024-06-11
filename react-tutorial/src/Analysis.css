@@ -1,0 +1,21 @@
+/* Analysis.css */
+.chart-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
