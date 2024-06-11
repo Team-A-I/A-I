@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Analysis from './pages/Analysis';
-import './App.css'; // CSS 파일 임포트
+import './App.css'; // CSS 파일 임포트ㅎㅇ
 
 function App() {
   return (
