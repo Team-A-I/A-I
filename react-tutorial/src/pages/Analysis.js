@@ -70,12 +70,12 @@ function Analysis() {
 
   return (
     <div>
-      <div class="imgDiv">
-        <img src={AnalysisImg} class="upImg"/>
+      <div className="imgDiv">
+        <img src={AnalysisImg} className="upImg"/>
       </div>
       <h1>AI 기반 채팅 분석 서비스</h1>
       <form onSubmit={handleSubmit}>
-        <div class="formBox">
+        <div className="formBox">
           <input type="file" onChange={handleFileChange} />
           <button type="submit">Upload</button>
         </div>
