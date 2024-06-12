@@ -20,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/analysis" element={<Analysis />} />
+        <Route path="/test" element={<barchart />} />
       </Routes>
     </div>
   );
