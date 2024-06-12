@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import Home from './pages/Home';
 import Analysis from './pages/Analysis';
+import Test from './pages/test';
 import './css/App.css';
 
 function App() {
@@ -15,12 +16,13 @@ function App() {
           </Typography>
           <Button color="inherit" component={Link} to="/">Home</Button>
           <Button color="inherit" component={Link} to="/analysis">Analysis</Button>
+          <Button color="inherit" component={Link} to="/test">Result</Button>
         </Toolbar>
       </AppBar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/analysis" element={<Analysis />} />
-        <Route path="/test" element={<barchart />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </div>
   );
