@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
 import { Chart, ArcElement } from 'chart.js';
-import '../Analysis.css'; // CSS 파일 임포트
+import '../css/Analysis.css'; // CSS 파일 임포트
 
 // Chart.js 요소 등록
 Chart.register(ArcElement);

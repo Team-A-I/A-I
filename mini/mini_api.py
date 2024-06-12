@@ -86,4 +86,5 @@ async def text(file: UploadFile = File(...)):
         percentages[name] = {key: (value / total_messages) * 100 for key, value in sentiment_scores.items()}
 
     # STEP 7. 결과 반환
-    return {"percentages": percentages}
+    return {"results": results, "percentages": percentages}
+

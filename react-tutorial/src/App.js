@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Analysis from './pages/Analysis';
-import './App.css'; // CSS 파일 임포트ㅎㅇ
+import './css/App.css'; // CSS 파일 임포트
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/analysis" element={<Analysis />} />
+        <Route path="/loading" element={<Analysis />} />
       </Routes>
     </div>
   );
