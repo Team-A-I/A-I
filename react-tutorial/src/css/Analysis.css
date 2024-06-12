@@ -13,9 +13,28 @@
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    flex-wrap : wrap;
   }
   
   button {
     margin-left: 10px;
+    margin-top: 10px;
   }
   
+
+  .imgDiv{
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .upImg{
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .formBox{
+    background-color: #FFF85C;
+    padding: 10px;
+    border-radius: 10px;
+  }
