@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
+import AnalysisImg from '../images/AnalysisImg.png';
 
 // Chart.js 요소 등록
 Chart.register(ArcElement);
@@ -69,10 +70,15 @@ function Analysis() {
 
   return (
     <div>
-      <h1>Sentiment Analysis</h1>
+      <div class="imgDiv">
+        <img src={AnalysisImg} class="upImg"/>
+      </div>
+      <h1>AI 기반 채팅 분석 서비스</h1>
       <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
+        <div class="formBox">
+          <input type="file" onChange={handleFileChange} />
+          <button type="submit">Upload</button>
+        </div>
       </form>
       {results && (
         <div>
