@@ -25,6 +25,7 @@
   justify-content: center;
   text-align: left;
   position: relative;
+  padding-left: 200px; /* 왼쪽에서 떨어지게 설정 */
 }
 
 .text-box {

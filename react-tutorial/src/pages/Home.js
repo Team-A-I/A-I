@@ -3,6 +3,7 @@ import { Container, Grid, Typography, Button, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import '../css/Home.css'; // 스타일 파일 임포트
 import katalkImage from '../images/katalk.png'; // 이미지 파일 임포트
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'; 
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
+              <Typography variant="header" component="p" gutterBottom>
+                AI Chat Emotion Analyzer  <PhoneIphoneIcon />
+              </Typography>
               <Typography variant="h3" component="h1" gutterBottom>
                 AI 채팅 감정 분석기
               </Typography>
