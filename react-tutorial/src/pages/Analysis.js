@@ -4,6 +4,9 @@ import { Pie } from 'react-chartjs-2';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
+import lineChart from '../componets/linechart.js';
+import Grid from '@mui/material/Grid';
+
 
 // Chart.js 요소 등록
 Chart.register(ArcElement);
@@ -15,7 +18,7 @@ function Analysis() {
   const [percentages, setPercentages] = useState(null);
   const [scores, setScores] = useState(null);
   const [avgscore, SetAvgscore] = useState(null);
-
+  
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
@@ -31,11 +34,18 @@ function Analysis() {
           'Content-Type': 'multipart/form-data'
         }
       });
+      const keys = Object.keys(response.data.individual_results);
+      console.log(keys)
+      lineChart(response.data.individual_score_lists_for_graph, keys)
       // console.log(response.data)
       setResults(response.data.individual_results)
       setScorelist(response.data.individual_score_lists_for_graph)
       setScores(response.data.individual_scores)
       SetAvgscore(response.data.sentiment_avg_scores)
+      
+      const responseList = response.data.individual_score_lists_for_graph;
+      
+    
 
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -70,12 +80,12 @@ function Analysis() {
 
   return (
     <div>
-      <div class="imgDiv">
-        <img src={AnalysisImg} class="upImg"/>
+      <div className="imgDiv">
+        <img src={AnalysisImg} className="upImg"/>
       </div>
       <h1>AI 기반 채팅 분석 서비스</h1>
       <form onSubmit={handleSubmit}>
-        <div class="formBox">
+        <div className="formBox">
           <input type="file" onChange={handleFileChange} />
           <button type="submit">Upload</button>
         </div>
@@ -86,6 +96,14 @@ function Analysis() {
           <pre>{JSON.stringify(results, null, 2)}</pre>
         </div>
       )}
+      <Grid container>
+        <Grid item xs={6} md={6}>
+          <Grid id="chart"></Grid>
+        </Grid>
+      
+      </Grid>
+      
+      
       {percentages && (
         <div>
           <h2>Percentages</h2>
