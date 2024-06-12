@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from pre import analyze_sentiments, organize_dialogues, parse_dialogues
+from module import analyze_sentiments, organize_dialogues, parse_dialogues
 
 app = FastAPI()
 
