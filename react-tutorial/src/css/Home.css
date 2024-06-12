@@ -31,13 +31,42 @@
 
 .home-text h1 {
   font-weight: 900;
+  color: #38393F;
 }
 .home-text-header {
   font-size: 25px;
+  color: #38393F;
+}
+
+.home-text p {
+  color: #4F5055;
+  font-weight: bold;
 }
 .text-box {
   background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-button {
+  display: none; /* 기본 파일 입력 버튼 숨김 */
+}
+
+.file-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input-label {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.file-input-label:hover {
+  background-color: #0056b3;
 }

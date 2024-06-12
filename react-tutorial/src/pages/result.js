@@ -1,5 +1,3 @@
-// src/pages/Result.js
-
 import React, { useEffect, useState } from 'react';
 import RoundChart from '../components/roundchart';
 import '../css/Result.css'; // CSS 파일 임포트
@@ -31,19 +29,27 @@ const Result = () => {
 
     return (
         <div>
-            <h1>Sentiment Analysis Results</h1>
-            <input type="file" onChange={handleFileChange} />
-            {data ? (
-                Object.keys(data).map((name) => (
-                    <div key={name} className="chart-container">
-                        <h2>{name}</h2>
-                        <RoundChart data={data[name]} />
-                    </div>
-                ))
-            ) : (
-                <p>Loading...</p>
-            )}
+        <h1>Sentiment Analysis Results</h1>
+        <div className="file-input-container">
+            <input 
+                type="file" 
+                id="file-input" 
+                onChange={handleFileChange} 
+                className="input-button" 
+            />
+            <label htmlFor="file-input" className="file-input-label">파일 선택</label>
         </div>
+        {data ? (
+            Object.keys(data).map((name) => (
+                <div key={name} className="chart-container">
+                    <h2>{name}</h2>
+                    <RoundChart data={data[name]} />
+                </div>
+            ))
+        ) : (
+            <p>Loading...</p>
+        )}
+    </div>
     );
 };
 
