@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import '../css/Home.css'; // 스타일 파일 임포트
 import katalkImage from '../images/katalk.png'; // 이미지 파일 임포트
 
+
 const Home = () => {
   return (
     <Container maxWidth="lg">
