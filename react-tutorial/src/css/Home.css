@@ -1,55 +1,35 @@
 /* Home.css */
 .home-container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-  
-  .home-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 2s ease-in-out;
-  }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-    animation: slideInLeft 1s ease-in-out;
-  }
-  
-  .home-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    animation: slideInRight 1s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideInLeft {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.home-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  width: 130%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+}
+
+.text-box {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

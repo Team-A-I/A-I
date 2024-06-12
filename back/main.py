@@ -29,7 +29,6 @@ async def upload_file(file: UploadFile):
     
     return {
         "individual_results": names,
-        "individual_score_lists": scoreList,
         "individual_score_lists_for_graph": scoreList2,
         # "combined_results": mixed_results,
         "sentiment_avg_scores": sentiment_avg_scores,
