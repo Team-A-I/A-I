@@ -10,7 +10,10 @@ Chart.register(ArcElement);
 function Analysis() {
   const [file, setFile] = useState(null);
   const [results, setResults] = useState(null);
+  const [scorelist, setScorelist] = useState(null)
   const [percentages, setPercentages] = useState(null);
+  const [scores, setScores] = useState(null);
+  const [avgscore, SetAvgscore] = useState(null);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -22,13 +25,17 @@ function Analysis() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/text/', formData, {
+      const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setResults(response.data.results);
-      setPercentages(response.data.percentages);  // 서버 응답에서 averages를 percentages로 설정
+      // console.log(response.data)
+      setResults(response.data.individual_results)
+      setScorelist(response.data.individual_score_lists_for_graph)
+      setScores(response.data.individual_scores)
+      SetAvgscore(response.data.sentiment_avg_scores)
+
     } catch (error) {
       console.error('Error uploading file:', error);
     }
