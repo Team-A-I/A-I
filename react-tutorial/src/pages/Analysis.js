@@ -15,6 +15,7 @@ function Analysis() {
   const [file, setFile] = useState(null);
   // 파일 업로드 후 결과 값 저장
   const [results, setResults] = useState(null);
+
   // 파일 업로드 핸들러
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -36,6 +37,7 @@ function Analysis() {
           'Content-Type': 'multipart/form-data'
         }
       });
+
       // 카카오톡 대화 이름 값만 추출
       const keys = Object.keys(response.data.individual_results);
       console.log(keys)
@@ -54,7 +56,7 @@ function Analysis() {
       <div className="imgDiv">
         <img src={AnalysisImg} className="upImg" alt="Analysis"/>
       </div>
-      <h1>AI 기반 채팅 분석 서비스</h1>
+      <h1>AI 기반 채팅 분석 서비스!</h1>
       <form onSubmit={handleSubmit}>
         <div className="formBox">
           <input type="file" onChange={handleFileChange} />
