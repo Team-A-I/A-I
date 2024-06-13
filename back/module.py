@@ -116,3 +116,14 @@ def analyze_sentiments(dialogues, combined_dialogues):
             scoreList2[all_names[1]].append(sumscore2[all_names[1]])
 
     return names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2
+
+
+# 감정스코어 평균합산에 대한 백분율을 만드는 코드
+def calculate_percentage_scores(sentiment_avg_scores):
+    percentage_scores = {}
+    
+    for name, sentiments in sentiment_avg_scores.items():
+        total_score = sum(sentiments.values())
+        percentage_scores[name] = {sentiment: round((score / total_score) * 100, 2) for sentiment, score in sentiments.items()}
+    
+    return percentage_scores

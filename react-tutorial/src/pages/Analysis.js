@@ -11,10 +11,10 @@ Chart.register(ArcElement);
 function Analysis() {
   const [file, setFile] = useState(null);
   const [results, setResults] = useState(null);
-  const [scorelist, setScorelist] = useState(null)
+  // const [scorelist, setScorelist] = useState(null);
   const [percentages, setPercentages] = useState(null);
-  const [scores, setScores] = useState(null);
-  const [avgscore, SetAvgscore] = useState(null);
+  // const [scores, setScores] = useState(null);
+  // const [avgscore, SetAvgscore] = useState(null);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -32,10 +32,10 @@ function Analysis() {
         }
       });
       // console.log(response.data)
-      setResults(response.data.individual_results)
-      setScorelist(response.data.individual_score_lists_for_graph)
-      setScores(response.data.individual_scores)
-      SetAvgscore(response.data.sentiment_avg_scores)
+      setResults(response.data.individual_results);
+      // setScorelist(response.data.individual_score_lists_for_graph);
+      // setScores(response.data.individual_scores);
+      setPercentages(response.data.sentiment_avg_scores);
 
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -71,9 +71,9 @@ function Analysis() {
   return (
     <div>
       <div className="imgDiv">
-        <img src={AnalysisImg} className="upImg"/>
+        <img src={AnalysisImg} className="upImg" alt="Analysis"/>
       </div>
-      <h1>AI 기반 채팅 분석 서비스</h1>
+      <h1>AI 기반 채팅 분석 서비스!</h1>
       <form onSubmit={handleSubmit}>
         <div className="formBox">
           <input type="file" onChange={handleFileChange} />
