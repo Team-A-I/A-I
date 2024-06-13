@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
-import lineChart from '../componets/linechart.js'; //라인 차트 생성 함수 임포트
+import lineChart from '../components/linechart.js'; //라인 차트 생성 함수 임포트
 import Grid from '@mui/material/Grid'; // 그리드 컴포넌트 임포트
 
 
