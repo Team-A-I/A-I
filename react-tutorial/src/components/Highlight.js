@@ -21,33 +21,28 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 const options = ["Action", "Another Action", "Something else here"];
 
-const activities = [
-  {
-    time: "09.50",
-    color: "success.main",
-    text: "Meeting with John",
-  },
-  {
-    time: "09.46",
-    color: "secondary.main",
-    text: "Payment received from John Doe of $385.90",
-  },
-  {
-    time: "09.47",
-    color: "primary.main",
-    text: "Project Meeting",
-  },
-  {
-    time: "09.48",
-    color: "warning.main",
-    text: "New Sale recorded #ML-3467",
-  },
-  {
-    time: "09.49",
-    color: "error.main",
-    text: "Payment was made of $64.95 to Michael Anderson",
-  },
+const summaries = [
+  "찬영이가 아이비 유혹의 소나타를 들어본 적이 없어 거짓말하지 말라고 했다.",
+  "2차 데이터 경진대회에서 나영이가 우승을 했다.",
+  "너 데엔 끝까지 해봐 응 나한테 오더주면 해줄게 관심생길때 해봐 하고",
+  "나는 데엔 관점에서 설계를 하고 나를 잔업에 쓰면 어떨까라는 생각을 했다.",
+  "데이콘은 수업도 하고 플젝도 하고 있어 플젝 하다 보니 UI 만드는 게"
 ];
+
+const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
+
+const activities = [];
+
+summaries.forEach((summary, index) => {
+  activities.push({
+    time: `Talk${index + 1}`,
+    color: colors[index],
+    text: summary,
+  });
+});
+
+// console.log(activities);
+
 
 // 여기 데이터 교체해보기 -- 대화를 5등분 한 뒤, 요약 모델 돌려서 대화 5번의 텀 요약해주기
 

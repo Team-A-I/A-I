@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, Box } from "@mui/material";
-import EmotionOverview from "../componets/EmotionOverview";
-import Highlight from "../componets/Highlight";
-import Ratio from "../componets/Ratio";
+import EmotionOverview from "../components/EmotionOverview";
+import Highlight from "../components/Highlight";
+import Ratio from "../components/Ratio";
 import { ThemeProvider } from "@mui/material/styles";
 import { baseTheme } from "../css/Dashboard";
 

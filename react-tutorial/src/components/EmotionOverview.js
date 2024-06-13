@@ -34,12 +34,12 @@ const EmotionOverview = () => {
       enabled: false,
     },
     markers: {
-      size: 0,
+      size: 5,
       colors: ["#1e4db7", "#a7e3f4"],
       strokeColors: "#fff",
       strokeWidth: 2,
       hover: {
-        size: 0,
+        size: 7,
       },
     },
     legend: {
@@ -62,30 +62,20 @@ const EmotionOverview = () => {
         "Dec",
       ],
       labels: {
-        show: false,
-      },
-      axisBorder: {
-        show: true,
-        color: '#c1cad482'
-      },
-      axisTicks: {
-        show: false,
+        style: {
+          cssClass: "grey--text lighten-2--text fill-color",
+        },
       },
     },
     yaxis: {
       show: true,
-      min: 100,
-      max: 400,
+      // min: 100,
+      // max: 400,
       tickAmount: 3,
       labels: {
-        show: false,
-      },
-      axisBorder: {
-        show: true,
-        color: '#c1cad482'
-      },
-      axisTicks: {
-        show: false,
+        style: {
+          cssClass: "grey--text lighten-2--text fill-color",
+        },
       },
     },
     stroke: {
@@ -98,39 +88,14 @@ const EmotionOverview = () => {
       theme: "dark",
     },
   };
-
-  const generateRandomData = (numPoints, min, max) => {
-    const data = [];
-    for (let i = 0; i < numPoints; i++) {
-      data.push(Math.floor(Math.random() * (max - min + 1)) + min);
-    }
-    return data;
-  };
-
-  const calculateMovingAverage = (data, windowSize) => {
-    let result = [];
-    for (let i = 0; i < data.length - windowSize + 1; i++) {
-      const window = data.slice(i, i + windowSize);
-      const average = window.reduce((sum, value) => sum + value, 0) / windowSize;
-      result.push(average);
-    }
-    return result;
-  };
-
-  const dataAmpleAdmin = generateRandomData(150, 100, 400);
-  const dataPixelAdmin = generateRandomData(150, 100, 400);
-
-  const smoothDataAmpleAdmin = calculateMovingAverage(dataAmpleAdmin, 5);
-  const smoothDataPixelAdmin = calculateMovingAverage(dataPixelAdmin, 5);
-
   const seriessalesoverview = [
     {
       name: "Ample Admin",
-      data: smoothDataAmpleAdmin,
+      data: [1,2,3,4,5,6,7,8,10],
     },
     {
       name: "Pixel Admin",
-      data: smoothDataPixelAdmin,
+      data: [10,12,3,4,5,16,7,18,10],
     },
   ];
 
@@ -163,7 +128,7 @@ const EmotionOverview = () => {
               }}
               gutterBottom
             >
-              Emotion Overview
+              Sales Overview
             </Typography>
           </Box>
           <Box

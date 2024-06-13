@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from module import analyze_sentiments, organize_dialogues, parse_dialogues,  calculate_percentage_scores
+from module import analyze_sentiments, organize_dialogues, parse_dialogues,  calculate_percentage_scores, chunk_list, summarize
 
 app = FastAPI()
 
@@ -31,10 +31,15 @@ async def upload_file(file: UploadFile):
     # 백분율 계산
     sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
 
+    chunks = chunk_list(mixed_results,5)
+    summary = summarize(chunks)
+    # print(f"summary:{summary}")
+
     return {
         "individual_results": names,
         "individual_score_lists_for_graph": scoreList2,
-        # "combined_results": mixed_results,
+        "combined_results": mixed_results,
         "sentiment_avg_scores": sentiment_avg_scores,
-        "individual_scores": check_score
+        "individual_scores": check_score,
+        "summary_mixed_results":summary
     }

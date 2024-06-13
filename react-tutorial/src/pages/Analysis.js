@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
-import lineChart from '../componets/linechart.js'; //라인 차트 생성 함수 임포트
 import Grid from '@mui/material/Grid'; // 그리드 컴포넌트 임포트
 
 
@@ -41,8 +40,6 @@ function Analysis() {
       // 카카오톡 대화 이름 값만 추출
       const keys = Object.keys(response.data.individual_results);
       console.log(keys)
-      // 누적 포인트로 라인 차트 생성 (linechart.js로 데이터 전달)
-      lineChart(response.data.individual_score_lists_for_graph, keys)
       // 결과 값 저장
       setResults(response.data.individual_results)
  

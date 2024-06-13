@@ -1,6 +1,13 @@
 from collections import defaultdict
 import re
 from transformers import pipeline
+from itertools import islice
+import nltk
+nltk.download('punkt')
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+model = AutoModelForSeq2SeqLM.from_pretrained('eenzeenee/t5-small-korean-summarization')
+tokenizer = AutoTokenizer.from_pretrained('eenzeenee/t5-small-korean-summarization')
 
 classifier = pipeline("sentiment-analysis", model="nlp04/korean_sentiment_analysis_kcelectra")
 
@@ -95,10 +102,10 @@ def analyze_sentiments(dialogues, combined_dialogues):
 
     all_names = list(dialogues.keys())
     mixed_results = []
-
     for dialogue in combined_dialogues:
         result = classifier(dialogue[2])[0]
-        mixed_results.append((dialogue[0], dialogue[1], dialogue[2], result['label']))
+        # print(f"dialogue[0]:{dialogue[0]}, dialogue[1]:{dialogue[1]}, dialogue[2]:{dialogue[2]}")
+        mixed_results.append(dialogue[2])
 
         if dialogue[0] == all_names[0]:
             if result['label'] in ['고마운', '기쁨(행복한)', '즐거운(신나는)', '사랑하는', '설레는(기대하는)']:
@@ -115,7 +122,34 @@ def analyze_sentiments(dialogues, combined_dialogues):
             scoreList2[all_names[0]].append(sumscore2[all_names[0]])
             scoreList2[all_names[1]].append(sumscore2[all_names[1]])
 
+    # print(f"len(mixed_results){len(mixed_results)}")
     return names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2
+
+
+# 모든 대화를 넣은 리스트를 5등분 하는 함수
+def chunk_list(lst, num_chunks):
+    avg = len(lst) / float(num_chunks)
+    chunks = []
+    last = 0.0
+
+    while last < len(lst):
+        chunks.append(lst[int(last):int(last + avg)])
+        last += avg
+
+    return chunks
+
+# for문 돌면서 문장 요약하는 함수
+def summarize(chunks):
+    result = []
+    for chunk in chunks:
+        chunk = " ".join(chunk)
+        inputs = ["summarize: " + chunk]
+        inputs = tokenizer(inputs, max_length=1000, truncation=True, return_tensors="pt")
+        output = model.generate(**inputs, num_beams=3, do_sample=True, min_length=10, max_length=32)
+        decoded_output = tokenizer.batch_decode(output, skip_special_tokens=True)[0]
+        result.append(nltk.sent_tokenize(decoded_output.strip())[0])
+    return result
+
 
 
 # 감정스코어 평균합산에 대한 백분율을 만드는 코드
