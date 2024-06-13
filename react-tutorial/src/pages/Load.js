@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios'; 
 import { useLocation, useNavigate } from 'react-router-dom';
-//import lineChart from '../componets/linechart.js'; //라인 차트 생성 함수 임포트
 
 function Load() {
   const location = useLocation();
