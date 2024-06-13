@@ -64,6 +64,13 @@ const EmotionOverview = () => {
       labels: {
         show: false,
       },
+      axisBorder: {
+        show: true,
+        color: '#c1cad482'
+      },
+      axisTicks: {
+        show: false,
+      },
     },
     yaxis: {
       show: true,
