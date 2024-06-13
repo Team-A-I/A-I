@@ -21,24 +21,13 @@ function Test() {
   const [data] = useState(result.individual_score_lists_for_graph);
   const [summary_answer] = useState(result.summary_mixed_results);
   const [keys] = useState(Object.keys(result.individual_results).map((key) => key.toString()));
-  console.log("keys",Object.keys(result.individual_results));
+  console.log("이게keys",keys)
   useEffect(() => {
-  //   console.log("들어옴");
-     if (hasSubmitted.current) return;
-     hasSubmitted.current = true;
-  //   // 카카오톡 대화 이름 값만 추출
-  //   //const keyResult = Object.keys(result.individual_results);
-  //   // 누적 포인트로 라인 차트 생성 (linechart.js로 데이터 전달)
-  //   //const dataResult = result.individual_score_lists_for_graph;
-  //   //console.log("진짜임",keys);
-    
-  //   //setData(dataResult);
-  //   //setKeys(keyResult);
-  //   // 결과 값 저장
-  //   setResults(result.individual_results)
-   }, []);
-  
-  console.log(result.summary_mixed_results)
+
+    if (hasSubmitted.current) return;
+    hasSubmitted.current = true;
+    setResults(result.individual_results)
+  }, []);
   return (
     
     <ThemeProvider theme={theme}>

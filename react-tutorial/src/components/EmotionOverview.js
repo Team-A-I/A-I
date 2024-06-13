@@ -6,17 +6,21 @@ var list1 = []
 var list2 = []
 var key1 = []
 var key2 = []
+var keys = []
 function EmotionOverview (data) {
   const responseList = data;
   //const key = keys;
   console.log("이게data",data)
+  console.log(typeof(data))
+  
   //console.log("이게keys",keys)
-  console.log("왔다",responseList[Object.keys(responseList)[0]])
+  keys = Object.keys(responseList[Object.keys(responseList)[0]])
+  console.log("왔다",Object.keys(responseList[Object.keys(responseList)[0]]))
   list1 = Object.values(responseList[Object.keys(responseList)[0]])[0];
   console.log("list1",list1)
   list2 = Object.values(responseList[Object.keys(responseList)[0]])[1];
   console.log("list2",list2)
-  let keys = Object.keys(data);
+  
   key1 = keys[0];
   key2 = keys[1];
   console.log("key1",keys)
