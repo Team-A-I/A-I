@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useCallback} from 'react';
 import { Container, Grid, Typography, Button, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink} from 'react-scroll';
 import { Link } from 'react-router-dom';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
@@ -19,13 +19,13 @@ const Home = () => {
 
   const [showScroll, setShowScroll] = useState(false);
 
-  const checkScrollTop = () => {
+  const checkScrollTop = useCallback(() => {
     if (!showScroll && window.pageYOffset > 300) {
       setShowScroll(true);
     } else if (showScroll && window.pageYOffset <= 300) {
       setShowScroll(false);
     }
-  };
+  }, [showScroll]);
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,7 +36,7 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', checkScrollTop);
     };
-  }, [showScroll]);
+  }, [checkScrollTop]);
 
   return (
     <Container maxWidth="lg">
