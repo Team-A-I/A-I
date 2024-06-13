@@ -3,6 +3,8 @@ import { Grid, Box, Button, Collapse } from "@mui/material";
 import EmotionOverview from "../components/EmotionOverview";
 import Highlight from "../components/Highlight";
 import Ratio from "../components/Ratio";
+import Average from "../components/average";
+import Term from "../components/term";
 import { ThemeProvider } from "@mui/material/styles";
 import { baseTheme } from "../css/Dashboard";
 
@@ -45,8 +47,8 @@ const Test = () => {
             <Collapse in={showMore}>
               <Box mt={4}>
                 {/* 여기에 더 많은 정보를 표시할 컴포넌트를 추가합니다 */}
-                <Highlight />
-                <Ratio />
+                <Average />
+                <Term />
               </Box>
             </Collapse>
           </Grid>
