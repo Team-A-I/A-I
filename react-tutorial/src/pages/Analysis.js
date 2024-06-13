@@ -1,87 +1,58 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Pie } from 'react-chartjs-2';
+import axios from 'axios'; 
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
-import lineChart from '../componets/linechart.js';
-import Grid from '@mui/material/Grid';
+import lineChart from '../componets/linechart.js'; //라인 차트 생성 함수 임포트
+import Grid from '@mui/material/Grid'; // 그리드 컴포넌트 임포트
 
 
 // Chart.js 요소 등록
 Chart.register(ArcElement);
 
 function Analysis() {
+  // 파일 저장
   const [file, setFile] = useState(null);
+  // 파일 업로드 후 결과 값 저장
   const [results, setResults] = useState(null);
-  const [scorelist, setScorelist] = useState(null)
-  const [percentages, setPercentages] = useState(null);
-  const [scores, setScores] = useState(null);
-  const [avgscore, SetAvgscore] = useState(null);
-  
+  // 파일 업로드 핸들러
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
+  // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async (event) => {
+    // 기본 이벤트 방지
     event.preventDefault();
+    // FormData 생성
     const formData = new FormData();
+    // formData에 파일 추가
     formData.append('file', file);
 
     try {
+      // 백엔드로 파일 전송
       const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
+      // 카카오톡 대화 이름 값만 추출
       const keys = Object.keys(response.data.individual_results);
       console.log(keys)
+      // 누적 포인트로 라인 차트 생성 (linechart.js로 데이터 전달)
       lineChart(response.data.individual_score_lists_for_graph, keys)
-      // console.log(response.data)
+      // 결과 값 저장
       setResults(response.data.individual_results)
-      setScorelist(response.data.individual_score_lists_for_graph)
-      setScores(response.data.individual_scores)
-      SetAvgscore(response.data.sentiment_avg_scores)
-      
-      const responseList = response.data.individual_score_lists_for_graph;
-      
-    
-
+ 
     } catch (error) {
       console.error('Error uploading file:', error);
     }
   };
 
-  const getPieChartData = (data) => {
-    const labels = Object.keys(data);
-    const values = Object.values(data);
-    return {
-      labels: labels,
-      datasets: [
-        {
-          data: values,
-          backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#4BC0C0',
-            '#9966FF',
-            '#FF9F40',
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#4BC0C0',
-            '#9966FF'
-          ]
-        }
-      ]
-    };
-  };
-
   return (
     <div>
       <div className="imgDiv">
-        <img src={AnalysisImg} className="upImg"/>
+        <img src={AnalysisImg} className="upImg" alt="Analysis"/>
       </div>
       <h1>AI 기반 채팅 분석 서비스</h1>
       <form onSubmit={handleSubmit}>
@@ -96,25 +67,12 @@ function Analysis() {
           <pre>{JSON.stringify(results, null, 2)}</pre>
         </div>
       )}
+      {/* 그리드로 차트 생성 */}
       <Grid container>
         <Grid item xs={6} md={6}>
           <Grid id="chart"></Grid>
         </Grid>
-      
       </Grid>
-      
-      
-      {percentages && (
-        <div>
-          <h2>Percentages</h2>
-          {Object.entries(percentages).map(([name, data]) => (
-            <div key={name} className="chart-container">
-              <h3>{name}</h3>
-              <Pie data={getPieChartData(data)} />
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
