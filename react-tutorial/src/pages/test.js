@@ -17,11 +17,14 @@ function Test() {
   const handleToggle = () => {setShowMore(!showMore);};
   const location = useLocation();
   const result = location.state.result;
+  const sentimentScores = result.sentiment_avg_scores_percentage;
+  const affinityScores = result.affinity_scores;
+  const averageDailyMessageCounts = result.average_daily_message_counts;
   const [results, setResults] = useState(null);
   const hasSubmitted = useRef(false);
   const [data] = useState(result.individual_score_lists_for_graph);
   const [keys] = useState(Object.keys(result.individual_results).map((key) => key.toString()));
-  console.log("keys",Object.keys(result.individual_results));
+
   useEffect(() => {
     console.log("들어옴");
     if (hasSubmitted.current) return;
@@ -57,7 +60,11 @@ function Test() {
             <Highlight />
           </Grid>
           <Grid item xs={12} lg={8}>
-            <Ratio />
+            {sentimentScores && affinityScores ? (
+              <Ratio sentimentScores={sentimentScores} affinityScores={affinityScores} />
+            ) : (
+              <p>No data to display</p> // 데이터가 없을 때 표시할 메시지
+            )}
           </Grid>
           {/* ------------------------- row 3 ------------------------- */}
           <Grid item xs={12} textAlign="center" mt={4}>
@@ -68,8 +75,11 @@ function Test() {
           <Grid item xs={12}>
             <Collapse in={showMore}>
               <Box mt={4}>
-                {/* 여기에 더 많은 정보를 표시할 컴포넌트를 추가합니다 */}
-                <Average />
+             {averageDailyMessageCounts && Object.keys(averageDailyMessageCounts).length > 0 ? (
+            <Average averageDailyMessageCounts={averageDailyMessageCounts} />
+          ) : (
+            <p>No data to display</p> // 데이터가 없을 때 표시할 메시지
+          )}
                 <Term />
               </Box>
             </Collapse>

@@ -24,8 +24,9 @@ function Analysis() {
 
   // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async (event) => {
+    
     // 기본 이벤트 방지
-    // event.preventDefault();
+    event.preventDefault();
     // FormData 생성
     // const formData = new FormData();
     // formData에 파일 추가
