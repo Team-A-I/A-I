@@ -22,6 +22,7 @@ app.add_middleware(
 async def upload_file(file: UploadFile):
     contents = await file.read()
     lines = contents.decode('utf-8').splitlines()
+    print("도착")
     
     result = parse_dialogues(lines)
     dialogues, combined_dialogues = organize_dialogues(result)
