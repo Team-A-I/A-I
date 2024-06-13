@@ -73,7 +73,7 @@ function Analysis() {
       <div className="imgDiv">
         <img src={AnalysisImg} className="upImg" alt="Analysis"/>
       </div>
-      <h1>AI 기반 채팅 분석 서비스</h1>
+      <h1>AI 기반 채팅 분석 서비스!</h1>
       <form onSubmit={handleSubmit}>
         <div className="formBox">
           <input type="file" onChange={handleFileChange} />
