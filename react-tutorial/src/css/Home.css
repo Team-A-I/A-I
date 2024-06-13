@@ -79,9 +79,15 @@
 }
 
 .home-container {
-  height: 100vh;
+  height: 110vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   display: flex;
   align-items: center;
+}
+.full-width-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 .home-image {
@@ -93,7 +99,23 @@
 
 .image {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image1 {
+  width: 100%;
+  max-width: 650px;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -165,4 +187,18 @@
   .home-text p {
     font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
   }
+}
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
