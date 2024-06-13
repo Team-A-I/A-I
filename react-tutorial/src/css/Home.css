@@ -1,20 +1,32 @@
-/* Home.css */
 .home-container {
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.home-section {
+  width: 100%;
+  margin: 50px 0;
+}
 
-.home-image {
+.home-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: relative;
+  text-align: center;
 }
 
 .image {
   width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-gif {
+  width: 100%;
+  max-width: 500px;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,47 +38,131 @@
   justify-content: center;
   text-align: left;
   position: relative;
-  padding-left: 200px; /* 왼쪽에서 떨어지게 설정 */
+  padding-left: 50px; /* 기본 패딩 */
+}
+
+@media (max-width: 960px) {
+  .home-text {
+    padding-left: 20px; /* 작은 화면에서 패딩 감소 */
+  }
+
+  .home-text-header {
+    font-size: 20px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text h1 {
+    font-size: 28px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 16px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+}
+
+@media (max-width: 600px) {
+  .home-text {
+    padding-left: 10px; /* 더 작은 화면에서 패딩 감소 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+
+  .home-text-header {
+    font-size: 18px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text h1 {
+    font-size: 24px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+}
+
+.home-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.home-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  padding-left: 50px; /* 기본 패딩 */
 }
 
 .home-text h1 {
   font-weight: 900;
   color: #38393F;
 }
+
 .home-text-header {
   font-size: 25px;
   color: #38393F;
 }
 
 .home-text p {
-  color: #4F5055;
+  color: #8E9097;
   font-weight: bold;
 }
-.text-box {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.second-text {
+  color: #8E9097;
+  font-weight: bold;
+  font-size: 30px;
 }
 
-.input-button {
-  display: none; /* 기본 파일 입력 버튼 숨김 */
+
+@media (max-width: 960px) {
+  .home-text {
+    padding-left: 20px; /* 작은 화면에서 패딩 감소 */
+  }
+
+  .home-text-header {
+    font-size: 20px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text h1 {
+    font-size: 28px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 16px; /* 작은 화면에서 폰트 크기 감소 */
+  }
 }
 
-.file-input-container {
-  position: relative;
-  display: inline-block;
-}
+@media (max-width: 600px) {
+  .home-text {
+    padding-left: 10px; /* 더 작은 화면에서 패딩 감소 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
 
-.file-input-label {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-}
+  .home-text-header {
+    font-size: 18px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
 
-.file-input-label:hover {
-  background-color: #0056b3;
+  .home-text h1 {
+    font-size: 24px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
 }
