@@ -35,7 +35,13 @@ function Test() {
   return (
     
     <ThemeProvider theme={theme}>
-      <Box>
+      <Box
+        sx={{
+            maxWidth: "1200px", 
+            margin: "0 auto",
+            padding: "20px",
+          }}
+        >
         <Grid container spacing={0}>
           {/* ------------------------- row 1 ------------------------- */}
           <Grid item xs={12} lg={12}>
