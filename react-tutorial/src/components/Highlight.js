@@ -6,8 +6,10 @@ import {
   Box,
   Menu,
   MenuItem,
+  IconButton,
 } from "@mui/material";
 
+import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -17,34 +19,21 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
-const options = ["Action", "Another Action", "Something else here"];
+const Highlight = (summary_answer) => {
+  const data = summary_answer;
+  const options = ["Action", "Another Action", "Something else here"];
+  const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
 
-const summaries = [
-  "찬영이가 아이비 유혹의 소나타를 들어본 적이 없어 거짓말하지 말라고 했다.",
-  "2차 데이터 경진대회에서 나영이가 우승을 했다.",
-  "너 데엔 끝까지 해봐 응 나한테 오더주면 해줄게 관심생길때 해봐 하고",
-  "나는 데엔 관점에서 설계를 하고 나를 잔업에 쓰면 어떨까라는 생각을 했다.",
-  "데이콘은 수업도 하고 플젝도 하고 있어 플젝 하다 보니 UI 만드는 게"
-];
+  const activities = [];
 
-const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
-
-const activities = [];
-
-summaries.forEach((summary, index) => {
-  activities.push({
-    time: `Talk${index + 1}`,
-    color: colors[index],
-    text: summary,
+  data.data.forEach((summary, index) => {
+    activities.push({
+      time: `Talk${index + 1}`,
+      color: colors[index],
+      text: summary,
+    });
   });
-});
 
-// console.log(activities);
-
-
-// 여기 데이터 교체해보기 -- 대화를 5등분 한 뒤, 요약 모델 돌려서 대화 5번의 텀 요약해주기
-
-const Highlight = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 //   const handleClick = (event) => {

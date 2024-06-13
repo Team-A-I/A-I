@@ -19,6 +19,7 @@ function Test() {
   const [results] = useState(result.summary_mixed_results);
   const hasSubmitted = useRef(false);
   const [data] = useState(result.individual_score_lists_for_graph);
+  const [summary_answer] = useState(result.summary_mixed_results);
   const [keys] = useState(Object.keys(result.individual_results).map((key) => key.toString()));
   console.log("keys",Object.keys(result.individual_results));
   useEffect(() => {
@@ -55,7 +56,7 @@ function Test() {
           </Grid>
           {/* ------------------------- row 2 ------------------------- */}
           <Grid item xs={12} lg={4}>
-            <Highlight />
+            <Highlight data={summary_answer}/>
           </Grid>
           <Grid item xs={12} lg={8}>
             <Ratio />
