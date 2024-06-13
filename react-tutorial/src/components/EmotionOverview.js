@@ -2,7 +2,25 @@ import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import Chart from 'react-apexcharts';
 
-const EmotionOverview = () => {
+var list1 = []
+var list2 = []
+var key1 = []
+var key2 = []
+function EmotionOverview (data) {
+  const responseList = data;
+  //const key = keys;
+  console.log("이게data",data)
+  //console.log("이게keys",keys)
+  console.log("왔다",responseList[Object.keys(responseList)[0]])
+  list1 = Object.values(responseList[Object.keys(responseList)[0]])[0];
+  console.log("list1",list1)
+  list2 = Object.values(responseList[Object.keys(responseList)[0]])[1];
+  console.log("list2",list2)
+  let keys = Object.keys(data);
+  key1 = keys[0];
+  key2 = keys[1];
+  console.log("key1",keys)
+  
   const optionssalesoverview = {
     grid: {
       show: true,
@@ -15,7 +33,7 @@ const EmotionOverview = () => {
       },
     },
     chart: {
-      offsetX: -15,
+      // offsetX: -15,
       toolbar: {
         show: false,
       },
@@ -47,20 +65,21 @@ const EmotionOverview = () => {
     },
     xaxis: {
       type: "category",
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "July",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      // min: -1,
+      // categories: [
+      //   "Jan",
+      //   "Feb",
+      //   "Mar",
+      //   "Apr",
+      //   "May",
+      //   "Jun",
+      //   "July",
+      //   "Aug",
+      //   "Sept",
+      //   "Oct",
+      //   "Nov",
+      //   "Dec",
+      // ],
       labels: {
         style: {
           cssClass: "grey--text lighten-2--text fill-color",
@@ -68,9 +87,9 @@ const EmotionOverview = () => {
       },
     },
     yaxis: {
-      show: true,
-      // min: 100,
-      // max: 400,
+      show: false,
+      // min: 0,
+      // max: 60,
       tickAmount: 3,
       labels: {
         style: {
@@ -90,12 +109,12 @@ const EmotionOverview = () => {
   };
   const seriessalesoverview = [
     {
-      name: "Ample Admin",
-      data: [1,2,3,4,5,6,7,8,10],
+      name: key1,
+      data: list1
     },
     {
-      name: "Pixel Admin",
-      data: [10,12,3,4,5,16,7,18,10],
+      name: key2,
+      data: list2
     },
   ];
 
@@ -148,13 +167,13 @@ const EmotionOverview = () => {
               }}
             >
               <Box
-                sx={{
-                  backgroundColor: "secondary.main",
-                  borderRadius: "50%",
-                  height: 8,
-                  width: 8,
-                  mr: 1,
-                }}
+                // sx={{
+                //   backgroundColor: "secondary.main",
+                //   borderRadius: "50%",
+                //   height: 8,
+                //   width: 8,
+                //   mr: 1,
+                // }}
               />
               <Typography
                 variant="h6"
@@ -162,7 +181,7 @@ const EmotionOverview = () => {
                   color: "secondary.main",
                 }}
               >
-                Ample
+                {/* Ample */}
               </Typography>
             </Box>
             <Box
@@ -173,13 +192,13 @@ const EmotionOverview = () => {
               }}
             >
               <Box
-                sx={{
-                  backgroundColor: "primary.main",
-                  borderRadius: "50%",
-                  height: 8,
-                  width: 8,
-                  mr: 1,
-                }}
+                // sx={{
+                //   backgroundColor: "primary.main",
+                //   borderRadius: "50%",
+                //   height: 8,
+                //   width: 8,
+                //   mr: 1,
+                // }}
               />
               <Typography
                 variant="h6"
@@ -187,7 +206,7 @@ const EmotionOverview = () => {
                   color: "primary.main",
                 }}
               >
-                Pixel Admin
+                {/* Pixel Admin */}
               </Typography>
             </Box>
           </Box>

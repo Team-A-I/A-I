@@ -1,5 +1,7 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Response
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.responses import RedirectResponse
+
 
 from module import analyze_sentiments, organize_dialogues, parse_dialogues,  calculate_percentage_scores, chunk_list, summarize
 
@@ -20,6 +22,7 @@ app.add_middleware(
 
 @app.post("/files/")
 async def upload_file(file: UploadFile):
+    print("시작")
     contents = await file.read()
     lines = contents.decode('utf-8').splitlines()
     print("도착")
@@ -31,9 +34,9 @@ async def upload_file(file: UploadFile):
     # 백분율 계산
     sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
 
+
     chunks = chunk_list(mixed_results,5)
     summary = summarize(chunks)
-    # print(f"summary:{summary}")
 
     return {
         "individual_results": names,
@@ -43,3 +46,4 @@ async def upload_file(file: UploadFile):
         "individual_scores": check_score,
         "summary_mixed_results":summary
     }
+    return result
