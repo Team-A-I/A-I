@@ -2,25 +2,7 @@ import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import Chart from 'react-apexcharts';
 
-var list1 = []
-var list2 = []
-var key1 = []
-var key2 = []
-function EmotionOverview (data) {
-  const responseList = data;
-  //const key = keys;
-  console.log("이게data",data)
-  //console.log("이게keys",keys)
-  console.log("왔다",responseList[Object.keys(responseList)[0]])
-  list1 = Object.values(responseList[Object.keys(responseList)[0]])[0];
-  console.log("list1",list1)
-  list2 = Object.values(responseList[Object.keys(responseList)[0]])[1];
-  console.log("list2",list2)
-  let keys = Object.keys(data);
-  key1 = keys[0];
-  key2 = keys[1];
-  console.log("key1",keys)
-  
+const EmotionOverview = () => {
   const optionssalesoverview = {
     grid: {
       show: true,
@@ -33,7 +15,7 @@ function EmotionOverview (data) {
       },
     },
     chart: {
-      // offsetX: -15,
+      offsetX: -15,
       toolbar: {
         show: false,
       },
@@ -65,21 +47,20 @@ function EmotionOverview (data) {
     },
     xaxis: {
       type: "category",
-      // min: -1,
-      // categories: [
-      //   "Jan",
-      //   "Feb",
-      //   "Mar",
-      //   "Apr",
-      //   "May",
-      //   "Jun",
-      //   "July",
-      //   "Aug",
-      //   "Sept",
-      //   "Oct",
-      //   "Nov",
-      //   "Dec",
-      // ],
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "July",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
       labels: {
         style: {
           cssClass: "grey--text lighten-2--text fill-color",
@@ -87,9 +68,9 @@ function EmotionOverview (data) {
       },
     },
     yaxis: {
-      show: false,
-      // min: 0,
-      // max: 60,
+      show: true,
+      // min: 100,
+      // max: 400,
       tickAmount: 3,
       labels: {
         style: {
@@ -109,12 +90,12 @@ function EmotionOverview (data) {
   };
   const seriessalesoverview = [
     {
-      name: key1,
-      data: list1
+      name: "Ample Admin",
+      data: [1,2,3,4,5,6,7,8,10],
     },
     {
-      name: key2,
-      data: list2
+      name: "Pixel Admin",
+      data: [10,12,3,4,5,16,7,18,10],
     },
   ];
 
@@ -167,13 +148,13 @@ function EmotionOverview (data) {
               }}
             >
               <Box
-                // sx={{
-                //   backgroundColor: "secondary.main",
-                //   borderRadius: "50%",
-                //   height: 8,
-                //   width: 8,
-                //   mr: 1,
-                // }}
+                sx={{
+                  backgroundColor: "secondary.main",
+                  borderRadius: "50%",
+                  height: 8,
+                  width: 8,
+                  mr: 1,
+                }}
               />
               <Typography
                 variant="h6"
@@ -181,7 +162,7 @@ function EmotionOverview (data) {
                   color: "secondary.main",
                 }}
               >
-                {/* Ample */}
+                Ample
               </Typography>
             </Box>
             <Box
@@ -192,13 +173,13 @@ function EmotionOverview (data) {
               }}
             >
               <Box
-                // sx={{
-                //   backgroundColor: "primary.main",
-                //   borderRadius: "50%",
-                //   height: 8,
-                //   width: 8,
-                //   mr: 1,
-                // }}
+                sx={{
+                  backgroundColor: "primary.main",
+                  borderRadius: "50%",
+                  height: 8,
+                  width: 8,
+                  mr: 1,
+                }}
               />
               <Typography
                 variant="h6"
@@ -206,7 +187,7 @@ function EmotionOverview (data) {
                   color: "primary.main",
                 }}
               >
-                {/* Pixel Admin */}
+                Pixel Admin
               </Typography>
             </Box>
           </Box>

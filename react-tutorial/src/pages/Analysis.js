@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
+
 //import Grid from '@mui/material/Grid'; // 그리드 컴포넌트 임포트
 import { useNavigate } from 'react-router-dom';
 
@@ -34,23 +35,8 @@ function Analysis() {
     //   data[key] = value;
     // });
 
-    try {
-      // 백엔드로 파일 전송
-      const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      // 카카오톡 대화 이름 값만 추출
-      const keys = Object.keys(response.data.individual_results);
-      console.log(keys)
-      // 결과 값 저장
-      setResults(response.data.individual_results)
- 
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
+    // 페이지 이동
+    navigate('/load', { state: { file: file }});
   };
 
   return (
