@@ -9,22 +9,17 @@ var key2 = []
 var keys = []
 function EmotionOverview (data) {
   const responseList = data;
-  //const key = keys;
-  console.log("이게data",data)
-  console.log(typeof(data))
   
-  //console.log("이게keys",keys)
   keys = Object.keys(responseList[Object.keys(responseList)[0]])
-  console.log("왔다",Object.keys(responseList[Object.keys(responseList)[0]]))
+
   list1 = Object.values(responseList[Object.keys(responseList)[0]])[0];
-  console.log("list1",list1)
+
   list2 = Object.values(responseList[Object.keys(responseList)[0]])[1];
-  console.log("list2",list2)
-  
+
+  //대화 
   key1 = keys[0];
   key2 = keys[1];
-  console.log("key1",keys)
-  
+
   const optionssalesoverview = {
     grid: {
       show: true,
@@ -47,7 +42,7 @@ function EmotionOverview (data) {
         enabled: false,
       },
     },
-    colors: ["#1e4db7", "#a7e3f4"],
+    colors: ["#FF788F", "#1976D2"],
     fill: {
       type: "solid",
       opacity: 1,
@@ -57,7 +52,7 @@ function EmotionOverview (data) {
     },
     markers: {
       size: 0,
-      colors: ["#1e4db7", "#a7e3f4"],
+      colors: ["#FF788F", "#1976D2"],
       strokeColors: "#fff",
       strokeWidth: 2,
       hover: {
@@ -115,7 +110,7 @@ function EmotionOverview (data) {
       show: true,
       width: 3,
       curve: "smooth",
-      colors: ["#1e4db7", "#a7e3f4"],
+      colors: ["#FF788F", "#1976D2"],
     },
     tooltip: {
       theme: "dark",
@@ -159,10 +154,11 @@ function EmotionOverview (data) {
               variant="h3"
               sx={{
                 marginBottom: "0",
+                fontWeight: "bold",
               }}
               gutterBottom
             >
-              Emotion Overview
+              대화별 감정 분석
             </Typography>
           </Box>
           <Box
@@ -182,21 +178,22 @@ function EmotionOverview (data) {
               }}
             >
               <Box
-                // sx={{
-                //   backgroundColor: "secondary.main",
-                //   borderRadius: "50%",
-                //   height: 8,
-                //   width: 8,
-                //   mr: 1,
-                // }}
+                sx={{
+                  backgroundColor: "#FF788F",
+                  borderRadius: "50%",
+                  height: 8,
+                  width: 8,
+                  mr: 1,
+                }}
               />
               <Typography
                 variant="h6"
                 sx={{
-                  color: "secondary.main",
+                  color: "#FF788F",
+                  fontWeight  : "bold"
                 }}
               >
-                {/* Ample */}
+                {key1}
               </Typography>
             </Box>
             <Box
@@ -207,21 +204,22 @@ function EmotionOverview (data) {
               }}
             >
               <Box
-                // sx={{
-                //   backgroundColor: "primary.main",
-                //   borderRadius: "50%",
-                //   height: 8,
-                //   width: 8,
-                //   mr: 1,
-                // }}
+                sx={{
+                  backgroundColor: "primary.main",
+                  borderRadius: "50%",
+                  height: 8,
+                  width: 8,
+                  mr: 1,
+                }}
               />
               <Typography
                 variant="h6"
                 sx={{
                   color: "primary.main",
+                  fontWeight  : "bold" 
                 }}
               >
-                {/* Pixel Admin */}
+                {key2}
               </Typography>
             </Box>
           </Box>
