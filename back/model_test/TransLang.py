@@ -85,6 +85,7 @@ async def translate_file(file: UploadFile = File(...)):
     return {"translated_text": translated_text}
 """
 
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
@@ -106,7 +107,7 @@ app.add_middleware(
 )
 
 # Define translation pipeline
-translator = pipeline("translation", model="Helsinki-NLP/opus-mt-ko-en")
+translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-ko")
 
 @app.post("/translate/")
 async def translate_file(file: UploadFile = File(...)):
@@ -123,4 +124,5 @@ async def translate_file(file: UploadFile = File(...)):
     translated_sentences = [translator(sentence) for sentence in sentences]
     
     return {"translated_sentences": translated_sentences}
+
 
