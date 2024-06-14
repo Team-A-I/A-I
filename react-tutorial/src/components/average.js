@@ -4,7 +4,6 @@ import Chart from "react-apexcharts";
 import chartAvarage from "../images/chart_avarage.png"; // 이미지 파일 임포트
 
 const Average = ({ averageDailyMessageCounts }) => {
-  console.log("Average Daily Message Counts in Average:", averageDailyMessageCounts); // 로그 추가
 
   if (!averageDailyMessageCounts || Object.keys(averageDailyMessageCounts).length === 0) {
     return null; // averageDailyMessageCounts가 없으면 아무것도 렌더링하지 않음
@@ -12,16 +11,32 @@ const Average = ({ averageDailyMessageCounts }) => {
 
   const userNames = Object.keys(averageDailyMessageCounts);
   const series = [{
-    name: "Average Daily Messages",
+    name: "하루평균 메시지 개수",
     data: userNames.map(name => averageDailyMessageCounts[name])
   }];
 
   const options = {
     chart: {
       type: 'bar',
+      toolbar: {
+        show: false
+      }
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true
+      }
     },
     xaxis: {
       categories: userNames,
+      title: {
+        text: '하루 평균 카톡 개수'
+      }
+    },
+    yaxis: {
+      title: {
+        text: ''
+      }
     },
     legend: {
       position: 'bottom'
