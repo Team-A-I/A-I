@@ -25,32 +25,37 @@ async def upload_file(file: UploadFile):
 
         result = parse_dialogues(lines)
         dialogues, combined_dialogues = organize_dialogues(result)
+        resultOk = 'y'
+        if len(dialogues) > 2:
+            resultOk = 'n'
+            return resultOk
+        else:
+            names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2 = analyze_sentiments(dialogues, combined_dialogues)
 
-        names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2 = analyze_sentiments(dialogues, combined_dialogues)
+            # 백분율 계산
+            sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
 
-        # 백분율 계산
-        sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
+            # 호감도 계산
+            affinity_scores = {name: calculate_affinity(scores) for name, scores in sentiment_avg_scores.items()}
 
-        # 호감도 계산
-        affinity_scores = {name: calculate_affinity(scores) for name, scores in sentiment_avg_scores.items()}
+            # 일별 메시지량 계산
+            average_daily_message_counts = calculate_daily_message_counts(names)
+            # print("Average Daily Message Counts:", average_daily_message_counts)  # 로그 추가
 
-        # 일별 메시지량 계산
-        average_daily_message_counts = calculate_daily_message_counts(names)
-        # print("Average Daily Message Counts:", average_daily_message_counts)  # 로그 추가
+            chunks = chunk_list(mixed_results,5)
+            summary = summarize(chunks)
 
-        chunks = chunk_list(mixed_results,5)
-        summary = summarize(chunks)
-
-        result = {
-            "individual_results": names,
-            "individual_score_lists_for_graph": scoreList2,
-            "sentiment_avg_scores": sentiment_avg_scores,
-            "sentiment_avg_scores_percentage": sentiment_avg_scores_percentage,
-            "individual_scores": check_score,
-            "affinity_scores": affinity_scores,
-            "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
-            "summary_mixed_results": summary
-        }
-        return result
+            result = {
+                "individual_results": names,
+                "individual_score_lists_for_graph": scoreList2,
+                "sentiment_avg_scores": sentiment_avg_scores,
+                "sentiment_avg_scores_percentage": sentiment_avg_scores_percentage,
+                "individual_scores": check_score,
+                "affinity_scores": affinity_scores,
+                "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
+                "summary_mixed_results": summary,
+                "resultOk": resultOk
+            }
+            return result
     except Exception as e:
         return {"error": str(e)}
