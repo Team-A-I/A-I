@@ -228,9 +228,114 @@ def calculate_daily_message_counts(individual_results):
 
     return average_daily_counts
 
+def convert_to_24h_time(am_pm, time):
+    try:
+        hour, minute = map(int, time.split(':'))
+        if am_pm == '오후' and hour != 12:
+            hour += 12
+        elif am_pm == '오전' and hour == 12:
+            hour = 0
+        return hour, minute
+    except ValueError as e:
+        print(f"Error converting time: {e}")
+        print(f"am_pm: {am_pm}, time: {time}")
+        raise e
+
+def extract_day_and_time(date_str):
+    try:
+        # 날짜에서 년, 월, 일 부분 추출
+        date_match = re.search(r'\d{4}년 \d{1,2}월 \d{1,2}일', date_str)
+        if not date_match:
+            raise ValueError("Date format incorrect")
+
+        date_part = date_match.group()
+
+        # 시간 부분 추출 (오전/오후 포함)
+        time_match = re.search(r'(오전|오후) (\d{1,2}:\d{2})', date_str)
+        if not time_match:
+            raise ValueError("Time format incorrect")
+
+        am_pm = time_match.group(1)
+        time = time_match.group(2)
+
+        return date_part, am_pm, time
+    except Exception as e:
+        print(f"Error extracting day and time: {e}")
+        print(f"date_str: {date_str}")
+        return None, None, None
+    
+def convert_to_24h_time(am_pm, time):
+    hour, minute = map(int, time.split(':'))
+    if am_pm == '오후' and hour != 12:
+        hour += 12
+    elif am_pm == '오전' and hour == 12:
+        hour = 0
+    return hour, minute
+    
+def group_messages_by_date(dialogues):
+    grouped_messages = defaultdict(list)
+
+    for message in dialogues:
+        if isinstance(message, tuple):
+            user, date_time, msg = message
+            date_str = date_time.split(' ')[1]  # 'YYYY년 MM월 DD일' 부분 추출
+            grouped_messages[date_str].append(message)
+
+    return grouped_messages
 
 
 
+# 답장 텀 계산 함수
+def calculate_reply_gaps(dialogues):
+    reply_gaps = []
 
+    for i in range(len(dialogues) - 1):
+        current_message = dialogues[i]
+        next_message = dialogues[i + 1]
 
+        if isinstance(current_message, tuple) and isinstance(next_message, tuple):
+            current_user, current_date_time, current_msg = current_message
+            next_user, next_date_time, next_msg = next_message
 
+            if current_user == next_user:
+                continue
+
+            try:
+                # 날짜와 시간 추출
+                current_date_part, current_am_pm, current_time = extract_day_and_time(current_date_time)
+                next_date_part, next_am_pm, next_time = extract_day_and_time(next_date_time)
+
+                if current_date_part is None or next_date_part is None:
+                    continue
+
+                # AM/PM 변환
+                current_hour, current_minute = convert_to_24h_time(current_am_pm, current_time)
+                next_hour, next_minute = convert_to_24h_time(next_am_pm, next_time)
+
+                # 시간 계산 (분 단위)
+                current_date = datetime.strptime(current_date_part, '%Y년 %m월 %d일')
+                next_date = datetime.strptime(next_date_part, '%Y년 %m월 %d일')
+                current_minutes = current_date.day * 24 * 60 + current_hour * 60 + current_minute
+                next_minutes = next_date.day * 24 * 60 + next_hour * 60 + next_minute
+                gap = next_minutes - current_minutes
+
+                reply_gaps.append({
+                    'from': current_user,
+                    'to': next_user,
+                    'gap': gap,
+                    'date': current_date_part
+                })
+            except ValueError as e:
+                print(f"Error parsing time: {e}")
+                print(f"current_date_time: {current_date_time}, next_date_time: {next_date_time}")
+
+    print("Calculated reply gaps:", reply_gaps)
+    return reply_gaps
+
+def convert_to_24h_time(am_pm, time):
+    hour, minute = map(int, time.split(':'))
+    if am_pm == '오후' and hour != 12:
+        hour += 12
+    elif am_pm == '오전' and hour == 12:
+        hour = 0
+    return hour, minute
