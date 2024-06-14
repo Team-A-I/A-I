@@ -6,10 +6,8 @@ import {
   Box,
   Menu,
   MenuItem,
-  IconButton,
 } from "@mui/material";
 
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -21,7 +19,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 const Highlight = (summary_answer) => {
   
-  console.log("summary_answer", summary_answer)
+  //console.log("summary_answer", summary_answer)
   const data = summary_answer;
   const options = ["Action", "Another Action", "Something else here"];
   const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
@@ -66,23 +64,23 @@ const Highlight = (summary_answer) => {
           <Box>
             <Typography
               sx={{
-                fontWeight: "500",
+                fontWeight: "bold",
                 fontSize: "h3.fontSize",
                 marginBottom: "0",
               }}
               gutterBottom
             >
-              Highlight Activities
+              대화 요약
             </Typography>
             <Typography
               color="textSecondary"
               variant="body1"
               sx={{
-                fontWeight: "400",
+                fontWeight: "bold",
                 fontSize: "13px",
               }}
             >
-              Overview of Conversation
+              Kakao talk 타임라인
             </Typography>
           </Box>
           <Box

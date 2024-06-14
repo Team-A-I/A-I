@@ -237,8 +237,8 @@ def convert_to_24h_time(am_pm, time):
             hour = 0
         return hour, minute
     except ValueError as e:
-        print(f"Error converting time: {e}")
-        print(f"am_pm: {am_pm}, time: {time}")
+        #print(f"Error converting time: {e}")
+        #print(f"am_pm: {am_pm}, time: {time}")
         raise e
 
 def extract_day_and_time(date_str):
@@ -260,8 +260,8 @@ def extract_day_and_time(date_str):
 
         return date_part, am_pm, time
     except Exception as e:
-        print(f"Error extracting day and time: {e}")
-        print(f"date_str: {date_str}")
+        #print(f"Error extracting day and time: {e}")
+        #print(f"date_str: {date_str}")
         return None, None, None
     
 def convert_to_24h_time(am_pm, time):
@@ -326,10 +326,10 @@ def calculate_reply_gaps(dialogues):
                     'date': current_date_part
                 })
             except ValueError as e:
-                print(f"Error parsing time: {e}")
+                #print(f"Error parsing time: {e}")
                 print(f"current_date_time: {current_date_time}, next_date_time: {next_date_time}")
 
-    print("Calculated reply gaps:", reply_gaps)
+    #print("Calculated reply gaps:", reply_gaps)
     return reply_gaps
 
 def convert_to_24h_time(am_pm, time):

@@ -6,6 +6,8 @@ from module import (
     calculate_daily_message_counts, chunk_list, summarize,
     calculate_reply_gaps  # 새로 추가된 함수 import
 )
+from module_llm import format_summary, llm_summary
+
 
 app = FastAPI()
 
@@ -29,19 +31,19 @@ async def upload_file(file: UploadFile):
         lines = contents.decode('utf-8').splitlines()
 
         # 로그 추가
-        print("Uploaded file contents:", lines)
+        #print("Uploaded file contents:", lines)
 
         result = parse_dialogues(lines)
         dialogues, combined_dialogues = organize_dialogues(result)
 
         # 데이터 구조 확인을 위해 로그 추가
-        print("Parsed dialogues:", dialogues)
-        print("Combined dialogues:", combined_dialogues)
+        #print("Parsed dialogues:", dialogues)
+        #print("Combined dialogues:", combined_dialogues)
 
         names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2 = analyze_sentiments(dialogues, combined_dialogues)
 
         # 로그 추가
-        print("Sentiment analysis results:", names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2)
+        #print("Sentiment analysis results:", names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2)
 
         # 백분율 계산
         sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
@@ -52,12 +54,20 @@ async def upload_file(file: UploadFile):
         # 일별 메시지량 계산
         average_daily_message_counts = calculate_daily_message_counts(names)
 
+
         # 답장 텀 계산
         reply_gaps = calculate_reply_gaps(combined_dialogues)
-        print("Reply Gaps in main.py:", reply_gaps)  # 로그 추가
+        #print("Reply Gaps in main.py:", reply_gaps)  # 로그 추가
 
-        chunks = chunk_list(mixed_results, 5)
-        summary = summarize(chunks)
+       #대화 요약
+        chunks = chunk_list(mixed_results,5)
+
+        #summary = summarize(chunks)
+
+        #llm요약
+        llama_summary = llm_summary(mixed_results)
+        final_summary = format_summary(llama_summary)
+        # print(f"final_answer:{final_answer}")
 
         result = {
             "individual_results": names,
@@ -68,10 +78,12 @@ async def upload_file(file: UploadFile):
             "affinity_scores": affinity_scores,
             "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
             "reply_gaps": reply_gaps,  # 답장 텀 추가된 부분
-            "summary_mixed_results": summary
+            "summary_mixed_results": final_summary
         }
-        print("Final Result in main.py:", result)  # 최종 결과 로그 추가
+        #print("Final Result in main.py:", result)  # 최종 결과 로그 추가
         return result
     except Exception as e:
         print("Error in main.py:", str(e))  # 오류 로그 추가
         return {"error": str(e)}
+
+#uvicorn main:app --reload --port=5000
