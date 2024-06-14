@@ -1,8 +1,33 @@
 import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
+import Chart from "react-apexcharts";
 import chartAvarage from "../images/chart_avarage.png"; // 이미지 파일 임포트
 
-const Average = () => {
+const Average = ({ averageDailyMessageCounts }) => {
+  console.log("Average Daily Message Counts in Average:", averageDailyMessageCounts); // 로그 추가
+
+  if (!averageDailyMessageCounts || Object.keys(averageDailyMessageCounts).length === 0) {
+    return null; // averageDailyMessageCounts가 없으면 아무것도 렌더링하지 않음
+  }
+
+  const userNames = Object.keys(averageDailyMessageCounts);
+  const series = [{
+    name: "Average Daily Messages",
+    data: userNames.map(name => averageDailyMessageCounts[name])
+  }];
+
+  const options = {
+    chart: {
+      type: 'bar',
+    },
+    xaxis: {
+      categories: userNames,
+    },
+    legend: {
+      position: 'bottom'
+    }
+  };
+
   return (
     <Card variant="outlined">
       <CardContent>
@@ -49,6 +74,14 @@ const Average = () => {
           >
             &nbsp;&nbsp;&nbsp;차트 들어올자리
           </Typography>
+          <Box sx={{ width: '100%', mt: 3 }}>
+            <Chart
+              options={options}
+              series={series}
+              type="bar"
+              height="380px"
+            />
+          </Box>
         </Box>
       </CardContent>
     </Card>
