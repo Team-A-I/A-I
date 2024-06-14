@@ -146,7 +146,7 @@ function Analysis() {
 
       </Swiper>
 
-      <Typography variant="header" component="h1" gutterBottom>
+      <Typography variant="header" component="h1" gutterBottom mt={8}>
         AI 채팅 감정 분석기
       </Typography>
 
@@ -167,7 +167,6 @@ function Analysis() {
           <Button variant="outlined" type="submit">Upload</Button>
         </Grid>
       </form>
-
 
     </Container>
   );
