@@ -20,6 +20,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 const Highlight = (summary_answer) => {
+  console.log("summary_answer", summary_answer)
   const data = summary_answer;
   const options = ["Action", "Another Action", "Something else here"];
   const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
