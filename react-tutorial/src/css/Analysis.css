@@ -33,8 +33,52 @@
     height: auto;
   }
 
-  .formBox{
-    background-color: #FFF85C;
-    padding: 10px;
-    border-radius: 10px;
+  .fileName{
+    margin: 0 12px;
+  }
+
+  .anaContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .anaImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .AnalysisImg{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .anaText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    padding-left: 50px; /* 기본 패딩 */
+  }
+
+  .anaText h1 {
+    font-weight: 900;
+    color: #38393F;
+  }
+  
+  .anaText-header {
+    font-size: 25px;
+    color: #38393F;
+  }
+  
+  .anaText p {
+    color: #8E9097;
+    font-weight: bold;
   }
