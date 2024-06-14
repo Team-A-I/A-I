@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import '../css/Load.css';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -30,8 +30,9 @@ function Load() {
   };
  
 
+
   // 파일 업로드하여 백에서 결과 값 받아오기
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
     if (hasSubmitted.current) return;
     hasSubmitted.current = true;
     // formData 생성
@@ -63,11 +64,11 @@ function Load() {
           }
 
         }
-      };
-      
+      }, [file, navigate]);
+
   useEffect(() => {
     handleSubmit();
-  }, []);
+  }, [handleSubmit]);
 
   return (
     <>
@@ -128,7 +129,5 @@ function Load() {
     
   );
 }
-
-
 
 export default Load;

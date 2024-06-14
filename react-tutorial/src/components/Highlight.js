@@ -6,10 +6,8 @@ import {
   Box,
   Menu,
   MenuItem,
-  IconButton,
 } from "@mui/material";
 
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -20,7 +18,8 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 const Highlight = (summary_answer) => {
-  console.log("summary_answer", summary_answer)
+  
+  //console.log("summary_answer", summary_answer)
   const data = summary_answer;
   const options = ["Action", "Another Action", "Something else here"];
   const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
