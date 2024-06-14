@@ -54,7 +54,7 @@ async def upload_file(file: UploadFile):
         llama_summary = llm_summary(mixed_results)
         final_summary = format_summary(llama_summary)
         # print(f"final_answer:{final_answer}")
-
+        
         result = {
             "individual_results": names,
             "individual_score_lists_for_graph": scoreList2,
@@ -63,7 +63,8 @@ async def upload_file(file: UploadFile):
             "individual_scores": check_score,
             "affinity_scores": affinity_scores,
             "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
-            "summary_mixed_results": final_summary
+            "summary_mixed_results": final_summary,
+            "resultOk": resultOk
         }
         return result
 
