@@ -14,6 +14,7 @@ function Load() {
   // 파일 업로드 핸들러
   const hasSubmitted = useRef(false);
 
+
   // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async () => {
     if (hasSubmitted.current) return;
@@ -22,6 +23,7 @@ function Load() {
     const formData = new FormData();
     // formData에 파일 추가
     formData.append('file', file);
+
     try {
       // 백엔드로 파일 전송
         const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
@@ -33,15 +35,14 @@ function Load() {
         const result = response.data
         // 페이지 이동
         navigate('/test', { state: { result: result }});
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
-  } 
-  // 페이지 마운트 시 실행
+
+        } catch (error) {
+          console.error('Error uploading file:', error);
+        }
+      };
+      
   useEffect(() => {
-    
     handleSubmit();
-  
   }, []);
 
   return (

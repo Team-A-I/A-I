@@ -6,8 +6,10 @@ import {
   Box,
   Menu,
   MenuItem,
+  IconButton,
 } from "@mui/material";
 
+import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -17,39 +19,22 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
-const options = ["Action", "Another Action", "Something else here"];
+const Highlight = (summary_answer) => {
+  console.log("summary_answer", summary_answer)
+  const data = summary_answer;
+  const options = ["Action", "Another Action", "Something else here"];
+  const colors = ["success.main", "secondary.main", "primary.main", "warning.main", "error.main"];
 
-const activities = [
-  {
-    time: "09.50",
-    color: "success.main",
-    text: "Meeting with John",
-  },
-  {
-    time: "09.46",
-    color: "secondary.main",
-    text: "Payment received from John Doe of $385.90",
-  },
-  {
-    time: "09.47",
-    color: "primary.main",
-    text: "Project Meeting",
-  },
-  {
-    time: "09.48",
-    color: "warning.main",
-    text: "New Sale recorded #ML-3467",
-  },
-  {
-    time: "09.49",
-    color: "error.main",
-    text: "Payment was made of $64.95 to Michael Anderson",
-  },
-];
+  const activities = [];
 
-// 여기 데이터 교체해보기 -- 대화를 5등분 한 뒤, 요약 모델 돌려서 대화 5번의 텀 요약해주기
+  data.data.forEach((summary, index) => {
+    activities.push({
+      time: `Talk${index + 1}`,
+      color: colors[index],
+      text: summary,
+    });
+  });
 
-const Highlight = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 //   const handleClick = (event) => {
