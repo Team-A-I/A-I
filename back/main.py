@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from module import analyze_sentiments, organize_dialogues, parse_dialogues, calculate_percentage_scores, calculate_affinity, calculate_daily_message_counts, chunk_list, summarize
+from module_llm import format_summary, llm_summary
 
 app = FastAPI()
 
@@ -38,8 +39,14 @@ async def upload_file(file: UploadFile):
         average_daily_message_counts = calculate_daily_message_counts(names)
         # print("Average Daily Message Counts:", average_daily_message_counts)  # 로그 추가
 
+        #대화 요약
         chunks = chunk_list(mixed_results,5)
         summary = summarize(chunks)
+
+        #llm요약
+        llama_summary = llm_summary(mixed_results)
+        final_summary = format_summary(llama_summary)
+        # print(f"final_answer:{final_answer}")
 
         result = {
             "individual_results": names,
@@ -49,7 +56,7 @@ async def upload_file(file: UploadFile):
             "individual_scores": check_score,
             "affinity_scores": affinity_scores,
             "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
-            "summary_mixed_results": summary
+            "summary_mixed_results": final_summary
         }
         return result
     except Exception as e:

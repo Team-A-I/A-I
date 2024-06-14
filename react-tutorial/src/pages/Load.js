@@ -26,7 +26,7 @@ function Load() {
 
     try {
       // 백엔드로 파일 전송
-        const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
+        const response = await axios.post('http://127.0.0.1:5000/files/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
