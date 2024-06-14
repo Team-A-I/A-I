@@ -1,9 +1,11 @@
 import React from "react";
-import { Card, CardContent, Typography, Box, Grid } from "@mui/material";
+import { Card, CardContent, Typography, Box, Grid, useTheme } from "@mui/material";
 import Chart from "react-apexcharts";
 import chartAvarage from "../images/chart_avarage.png"; // 이미지 파일 임포트
 
 const Average = ({ averageDailyMessageCounts }) => {
+
+  const theme = useTheme();
 
   if (!averageDailyMessageCounts || Object.keys(averageDailyMessageCounts).length === 0) {
     return null; // averageDailyMessageCounts가 없으면 아무것도 렌더링하지 않음
@@ -53,7 +55,8 @@ const Average = ({ averageDailyMessageCounts }) => {
     },
     legend: {
       position: 'bottom'
-    }
+    },
+    colors: [theme.palette.primary.main] // 원하는 색상으로 설정
   };
 
   return (
@@ -71,7 +74,7 @@ const Average = ({ averageDailyMessageCounts }) => {
           <Grid item xs={12} sm={6}>
             <Typography
               variant="body1"
-              sx={{ mt: 2, textAlign: 'center' }} // 가운데 정렬을 위해 textAlign 추가
+              sx={{ mt: 2, textAlign: 'center' }} // 가운데 정렬
               style={{ fontWeight: 'bold', fontSize: '20px' }}
             >
               your Result
@@ -81,7 +84,7 @@ const Average = ({ averageDailyMessageCounts }) => {
                 options={options}
                 series={series}
                 type="bar"
-                height="250px" // 높이를 줄였습니다.
+                height="250px" 
               />
             </Box>
           </Grid>
