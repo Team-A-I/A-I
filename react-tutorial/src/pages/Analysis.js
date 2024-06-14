@@ -24,18 +24,7 @@ function Analysis() {
 
   // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async (event) => {
-    
-    // 기본 이벤트 방지
     event.preventDefault();
-    // FormData 생성
-    // const formData = new FormData();
-    // formData에 파일 추가
-    // formData.append('file', file);
-    // const data = {};
-    // formData.forEach((value, key) => {
-    //   data[key] = value;
-    // });
-
     // 페이지 이동
     navigate('/load', { state: { file: file }});
   };
@@ -52,18 +41,6 @@ function Analysis() {
           <button type="submit">Upload</button>
         </div>
       </form>
-      {/* {results && (
-        <div>
-          <h2>Results</h2>
-          <pre>{JSON.stringify(results, null, 2)}</pre>
-        </div>
-      )} */}
-      {/* 그리드로 차트 생성 */}
-      {/* <Grid container>
-        <Grid item xs={6} md={6}>
-          <Grid id="chart"></Grid>
-        </Grid>
-      </Grid> */}
     </div>
   );
 }
