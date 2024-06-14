@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg from '../images/AnalysisImg.png';
-
-//import Grid from '@mui/material/Grid'; // 그리드 컴포넌트 임포트
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,8 +11,7 @@ Chart.register(ArcElement);
 function Analysis() {
   // 파일 저장
   const [file, setFile] = useState(null);
-  // 파일 업로드 후 결과 값 저장
-  //const [results, setResults] = useState(null);
+  //페이지 이동 함수 생성
   const navigate = useNavigate();
 
   // 파일 업로드 핸들러
