@@ -65,23 +65,23 @@ const Highlight = (summary_answer) => {
           <Box>
             <Typography
               sx={{
-                fontWeight: "500",
+                fontWeight: "bold",
                 fontSize: "h3.fontSize",
                 marginBottom: "0",
               }}
               gutterBottom
             >
-              Highlight Activities
+              대화 요약
             </Typography>
             <Typography
               color="textSecondary"
               variant="body1"
               sx={{
-                fontWeight: "400",
+                fontWeight: "bold",
                 fontSize: "13px",
               }}
             >
-              Overview of Conversation
+              Kakao talk 타임라인
             </Typography>
           </Box>
           <Box

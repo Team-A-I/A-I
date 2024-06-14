@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from module import analyze_sentiments, organize_dialogues, parse_dialogues, calculate_percentage_scores, calculate_affinity, calculate_daily_message_counts, chunk_list, summarize
+from module_llm import format_summary, llm_summary
 
 app = FastAPI()
 
@@ -45,17 +46,28 @@ async def upload_file(file: UploadFile):
             chunks = chunk_list(mixed_results,5)
             summary = summarize(chunks)
 
-            result = {
-                "individual_results": names,
-                "individual_score_lists_for_graph": scoreList2,
-                "sentiment_avg_scores": sentiment_avg_scores,
-                "sentiment_avg_scores_percentage": sentiment_avg_scores_percentage,
-                "individual_scores": check_score,
-                "affinity_scores": affinity_scores,
-                "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
-                "summary_mixed_results": summary,
-                "resultOk": resultOk
-            }
-            return result
+        #대화 요약
+        chunks = chunk_list(mixed_results,5)
+        summary = summarize(chunks)
+
+        #llm요약
+        llama_summary = llm_summary(mixed_results)
+        final_summary = format_summary(llama_summary)
+        # print(f"final_answer:{final_answer}")
+
+        result = {
+            "individual_results": names,
+            "individual_score_lists_for_graph": scoreList2,
+            "sentiment_avg_scores": sentiment_avg_scores,
+            "sentiment_avg_scores_percentage": sentiment_avg_scores_percentage,
+            "individual_scores": check_score,
+            "affinity_scores": affinity_scores,
+            "average_daily_message_counts": average_daily_message_counts,  # 추가된 부분
+            "summary_mixed_results": final_summary
+        }
+        return result
+
     except Exception as e:
         return {"error": str(e)}
+
+#uvicorn main:app --reload --port=5000

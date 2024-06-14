@@ -35,6 +35,7 @@ function Load() {
     if (hasSubmitted.current) return;
     hasSubmitted.current = true;
     // formData 생성
+
     if(file.type !== "text/plain")  {
       handleOpen2();
     }else{
@@ -60,6 +61,7 @@ function Load() {
           } catch (error) {
             console.error('Error uploading file:', error);
           }
+
         }
       };
       
