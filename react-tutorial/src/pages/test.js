@@ -16,7 +16,7 @@ function Test() {
   const handleToggle = () => {setShowMore(!showMore);};
   const location = useLocation();
   const result = location.state.result;
-  const [results] = useState(result.summary_mixed_results);
+  const [results, setResults] = useState(null);
   const hasSubmitted = useRef(false);
   const [data] = useState(result.individual_score_lists_for_graph);
   const [summary_answer] = useState(result.summary_mixed_results);
