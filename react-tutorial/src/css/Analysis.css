@@ -36,7 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 65px;
+    padding-top: 60px;
     margin-bottom: 25px;
   }
 
@@ -52,6 +52,7 @@
     max-width: 500px;
     height: auto;
     border-radius: 20px;
+    padding-left: 16px;
   }
 
   .anaText {
@@ -60,7 +61,8 @@
     justify-content: center;
     text-align: left;
     position: relative;
-    padding-left: 50px; /* 기본 패딩 */
+    padding-left: 50px;
+    padding-right: 16px;
   }
 
   .anaText h1 {
@@ -76,4 +78,9 @@
   .anaText p {
     color: #8E9097;
     font-weight: bold;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    margin-left: -12px;
+    margin-right: -12px; 
   }
