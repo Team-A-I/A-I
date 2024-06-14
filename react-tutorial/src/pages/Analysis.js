@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Chart, ArcElement } from 'chart.js';
 import '../css/Analysis.css'; // CSS 파일 임포트
 import AnalysisImg1 from '../images/AnalysisImg1.png';
 import AnalysisImg2 from '../images/AnalysisImg2.png';
 import AnalysisImg3 from '../images/AnalysisImg3.png';
-import lineChart from '../componets/linechart.js'; // 라인 차트 생성 함수 임포트
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'; // 구름 아이콘 임포트
 import { motion } from 'framer-motion'; // motion 컴포넌트 임포트
 import { Button, Typography, Grid, styled, Container, Box } from '@mui/material';
@@ -14,11 +11,8 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Pagination } from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 
-
-
-// Chart.js 요소 등록
-Chart.register(ArcElement);
 
 function Analysis() {
   // 파일 저장
@@ -26,7 +20,8 @@ function Analysis() {
   // 파일명 저장
   const [fileName, setFileName] = useState("파일을 선택해주세요. "); // 파일명을 저장하기 위한 상태 추가
   // 파일 업로드 후 결과 값 저장
-  const [results, setResults] = useState(null);
+  //const [results, setResults] = useState(null);
+  const navigate = useNavigate();
 
   // 파일 업로드 핸들러
   const handleFileChange = (event) => {
@@ -37,32 +32,9 @@ function Analysis() {
 
   // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async (event) => {
-    // 기본 이벤트 방지
-    event.preventDefault();
-    // FormData 생성
-    const formData = new FormData();
-    // formData에 파일 추가
-    formData.append('file', file);
 
-    try {
-      // 백엔드로 파일 전송
-      const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      // 카카오톡 대화 이름 값만 추출
-      const keys = Object.keys(response.data.individual_results);
-      console.log(keys);
-      // 누적 포인트로 라인 차트 생성 (linechart.js로 데이터 전달)
-      lineChart(response.data.individual_score_lists_for_graph, keys);
-      // 결과 값 저장
-      setResults(response.data.individual_results);
-
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
+    // 페이지 이동
+    navigate('/load', { state: { file: file }});
   };
 
   // 파일 업로드
@@ -195,18 +167,8 @@ function Analysis() {
           <Button variant="outlined" type="submit">Upload</Button>
         </Grid>
       </form>
-      {results && (
-        <Grid>
-          <h2>Results</h2>
-          <pre>{JSON.stringify(results, null, 2)}</pre>
-        </Grid>
-      )}
-      {/* 그리드로 차트 생성 */}
-      <Grid container>
-        <Grid item xs={6} md={6}>
-          <Grid id="chart"></Grid>
-        </Grid>
-      </Grid>
+
+
     </Container>
   );
 }

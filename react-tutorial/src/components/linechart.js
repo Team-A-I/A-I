@@ -13,7 +13,8 @@ function lineChart(data, keys) {
     var options = {
         chart: {
             type: 'line',
-            stacked: false
+            stacked: false,
+            height: 300,
         },
         // 차트 선을 부드럽게 만들어줌
         stroke: {
