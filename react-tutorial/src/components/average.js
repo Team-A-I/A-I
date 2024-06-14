@@ -67,13 +67,6 @@ const Average = ({ averageDailyMessageCounts }) => {
           >
             &nbsp;&nbsp;&nbsp;당신의 결과값과 함께 비교를 해보세요
           </Typography>
-          <Typography 
-            variant="body1" 
-            sx={{ mt: 2 }} 
-            style={{ fontWeight: 'bold', fontSize: '20px' }}
-          >
-            &nbsp;&nbsp;&nbsp;차트 들어올자리
-          </Typography>
           <Box sx={{ width: '100%', mt: 3 }}>
             <Chart
               options={options}
