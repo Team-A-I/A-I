@@ -61,3 +61,5 @@ async def upload_file(file: UploadFile):
         return result
     except Exception as e:
         return {"error": str(e)}
+
+#uvicorn main:app --reload --port=5000
