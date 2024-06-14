@@ -17,10 +17,11 @@ import { useNavigate } from 'react-router-dom';
 function Analysis() {
   // 파일 저장
   const [file, setFile] = useState(null);
+
   // 파일명 저장
   const [fileName, setFileName] = useState("파일을 선택해주세요. "); // 파일명을 저장하기 위한 상태 추가
+  
   // 파일 업로드 후 결과 값 저장
-  //const [results, setResults] = useState(null);
   const navigate = useNavigate();
 
   // 파일 업로드 핸들러

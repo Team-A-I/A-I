@@ -8,29 +8,26 @@ import Highlight from "../components/Highlight.js";
 import Ratio from "../components/Ratio.js";
 import { ThemeProvider } from "@mui/material/styles";
 import { baseTheme } from "../css/Dashboard";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function Test() {
   const theme = baseTheme;
   const [showMore, setShowMore] = useState(false);
   const handleToggle = () => {setShowMore(!showMore);};
+  //페이지 이동 함수 생성
   const location = useLocation();
+  // 결과 값 저장
   const result = location.state.result;
+
+  // 문장별 대화 내용 결과 값 
+  const [results] = useState(result.individual_results);
+  // 누적 점수 결과 값
+  const [data] = useState(result.individual_score_lists_for_graph);
   const sentimentScores = result.sentiment_avg_scores_percentage;
   const affinityScores = result.affinity_scores;
   const averageDailyMessageCounts = result.average_daily_message_counts;
-  const [results, setResults] = useState(null);
-  const hasSubmitted = useRef(false);
-  const [data] = useState(result.individual_score_lists_for_graph);
   const [summary_answer] = useState(result.summary_mixed_results);
-  const [keys] = useState(Object.keys(result.individual_results).map((key) => key.toString()));
 
-  useEffect(() => {
-
-    if (hasSubmitted.current) return;
-    hasSubmitted.current = true;
-    setResults(result.individual_results)
-  }, []);
   return (
     
     <ThemeProvider theme={theme}>
