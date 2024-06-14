@@ -8,15 +8,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 function Load() {
   const location = useLocation();
   const file = location.state.file;
-  console.log(file); // FormData 출력
+  console.log("FormData", file); // FormData 출력
   const navigate = useNavigate();
   const hasSubmitted = useRef(false);
+
   const handleSubmit = async () => {
     if (hasSubmitted.current) return;
     hasSubmitted.current = true;
     
     const formData = new FormData();
     formData.append('file', file);
+
     try {
       // 백엔드로 파일 전송
         const response = await axios.post('http://127.0.0.1:8000/files/', formData, {
@@ -27,14 +29,13 @@ function Load() {
         
         const result = response.data
         navigate('/test', { state: { result: result }});
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
-  } 
+        } catch (error) {
+          console.error('Error uploading file:', error);
+        }
+      };
+      
   useEffect(() => {
-    
     handleSubmit();
-  
   }, []);
 
   return (

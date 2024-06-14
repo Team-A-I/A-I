@@ -24,6 +24,7 @@ function Analysis() {
 
   // 파일 업로드하여 백에서 결과 값 받아오기
   const handleSubmit = async (event) => {
+    event.preventDefault();
     // 페이지 이동
     navigate('/load', { state: { file: file }});
   };
