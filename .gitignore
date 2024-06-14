@@ -1,5 +1,6 @@
+# Python bytecode
 __pycache__/
 __pycache__
 
-# dependencies
-/node_modules
+# Node modules
+node_modules/
