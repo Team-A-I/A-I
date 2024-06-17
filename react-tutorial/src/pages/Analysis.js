@@ -84,7 +84,7 @@ function Analysis() {
         </SwiperSlide>
 
         <SwiperSlide>
-          <Grid container spacing={2} mt={6} className="anaContainer">
+          <Grid container spacing={2} mt={10} className="anaContainer">
             <Grid item xs={12} md={6} className="anaImage">
               <motion.img
                 src={AnalysisImg2}
@@ -109,7 +109,7 @@ function Analysis() {
         </SwiperSlide>
 
         <SwiperSlide>
-          <Grid container spacing={2} mt={6} className="anaContainer">
+          <Grid container spacing={2} mt={10} className="anaContainer">
             <Grid item xs={12} md={6} className="anaImage">
               <motion.img
                 src={AnalysisImg3}
