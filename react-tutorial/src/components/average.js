@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardContent, Typography, Box, Grid, useTheme } from "@mui/material";
 import Chart from "react-apexcharts";
-import chartAvarage from "../images/chart_avarage.png"; // 이미지 파일 임포트
+import greenlight from "../images/greenlight.jpg"; 
+
 
 const Average = ({ averageDailyMessageCounts }) => {
 
@@ -26,7 +27,7 @@ const Average = ({ averageDailyMessageCounts }) => {
     },
     plotOptions: {
       bar: {
-        horizontal: true
+        horizontal: false
       }
     },
     dataLabels: {
@@ -45,7 +46,7 @@ const Average = ({ averageDailyMessageCounts }) => {
     xaxis: {
       categories: userNames,
       title: {
-        text: '하루 평균 카톡 개수'
+        text: ''
       }
     },
     yaxis: {
@@ -56,29 +57,36 @@ const Average = ({ averageDailyMessageCounts }) => {
     legend: {
       position: 'bottom'
     },
-    colors: [theme.palette.primary.main] // 원하는 색상으로 설정
+    colors: "#38b000" // 원하는 색상으로 설정 "#38b000"
   };
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined"
+    sx={{
+        pb: 0,
+        height: '450px'
+      }}>
       <CardContent>
-        <Typography
+        {/* <Typography
           variant="h3"
           sx={{ marginBottom: "0" }}
           gutterBottom
           style={{ fontWeight: 'bold', fontSize: '30px' }}
         >
-          &nbsp;&nbsp;TURN ON THE GREEN LIGHT!
+          TURN ON THE GREEN LIGHT!
+        </Typography> */}
+        <Typography
+          sx={{
+          fontWeight: "bold",
+          fontSize: "h5.fontSize",
+          marginBottom: "0",
+          }}
+          gutterBottom
+        >
+          {userNames[0]}님과 {userNames[1]}님의 하루 평균 카톡 개수
         </Typography>
-        <Grid container spacing={2} sx={{ mt: 3 }}>
-          <Grid item xs={12} sm={6}>
-            <Typography
-              variant="body1"
-              sx={{ mt: 2, textAlign: 'center' }} // 가운데 정렬
-              style={{ fontWeight: 'bold', fontSize: '20px' }}
-            >
-              your Result
-            </Typography>
+        <Grid container spacing={1} sx={{ mt: 7 }}>
+          <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
               <Chart
                 options={options}
@@ -88,21 +96,22 @@ const Average = ({ averageDailyMessageCounts }) => {
               />
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-              <Box
-                component="img"
-                alt="Sample"
-                src={chartAvarage}
-                sx={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
-              />
-            </Box>
-          </Grid>
         </Grid>
       </CardContent>
+      <Typography
+        sx={{
+          fontWeight: "bold",
+          fontSize: "h5.fontSize",
+          marginTop: "0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        gutterBottom
+      >
+        40개 이상은 받으셨나요?
+        <img src={greenlight} style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
+      </Typography>
     </Card>
   );
 };

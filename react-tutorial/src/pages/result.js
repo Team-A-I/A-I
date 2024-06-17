@@ -5,6 +5,7 @@ import Term from "../components/term.js";
 import EmotionOverview from "../components/EmotionOverview.js";
 import Highlight from "../components/Highlight.js";
 import Ratio from "../components/Ratio.js";
+import Sample from "../components/sample.js";
 import { ThemeProvider } from "@mui/material/styles";
 import { baseTheme } from "../css/Dashboard.js";
 import { useLocation } from 'react-router-dom';
@@ -32,7 +33,7 @@ function Test() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          maxWidth: "1200px", 
+          maxWidth: "1400px", 
           margin: "0 auto",
           padding: "20px",
         }}
@@ -59,22 +60,28 @@ function Test() {
               {showMore ? "숨기기" : "추가로 확인하기"}
             </Button>
           </Grid>
-          <Grid item xs={12}>
-            <Collapse in={showMore}>
-              <Box mt={4}>
-              {averageDailyMessageCounts && Object.keys(averageDailyMessageCounts).length > 0 ? (
-                  <Average averageDailyMessageCounts={averageDailyMessageCounts} />
-                ) : (
-                  <p>No data to display</p> // 데이터가 없을 때 표시할 메시지
-                )}
+
+          <Collapse in={showMore}>
+            <Grid container spacing={2} mt={4}>
+              <Grid item xs={12} lg={4}>
+                <Sample/>
+              </Grid>
+              <Grid item xs={12} lg={4}>
+                {averageDailyMessageCounts && Object.keys(averageDailyMessageCounts).length > 0 ? (
+                    <Average averageDailyMessageCounts={averageDailyMessageCounts} />
+                  ) : (
+                    <p>No data to display</p> // 데이터가 없을 때 표시할 메시지
+                  )}
+              </Grid>
+              <Grid item xs={12} lg={4}>
                 {replyGaps && replyGaps.length > 0 ? (
                   <Term replyGaps={replyGaps} />
                 ) : (
                   <p>No reply gaps data to display</p> // 답장 텀 데이터가 없을 때 표시할 메시지
                 )}
-              </Box>
-            </Collapse>
-          </Grid>
+              </Grid>
+            </Grid>
+          </Collapse>
         </Grid>
       </Box>
     </ThemeProvider>

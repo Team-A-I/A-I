@@ -94,8 +94,7 @@ function Load() {
         const nextIndex = (currentIndex + 1) % images.length;
         return images[nextIndex];
       });
-    }, 8000); // 10초 간격
-
+    }, 5000); 
     return () => clearInterval(intervalId);
   }, []);
 
