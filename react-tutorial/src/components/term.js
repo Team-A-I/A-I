@@ -114,7 +114,7 @@ const Term = ({ replyGaps }) => {
         gutterBottom
       >
         일정 간격으로 주고 받았나요?
-        <img src={greenlight} style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
+        <img src={greenlight} alt="greenlight" style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
       </Typography>
     </Card>
   );
