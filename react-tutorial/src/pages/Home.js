@@ -75,7 +75,7 @@ const Home = () => {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -50 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.5, delay: 2}}
                 >
                   <Typography variant="body1" component="p" style={{ fontWeight: 'bold' , color: 'rgba(0, 0, 0, 0.7)' ,  whiteSpace: 'pre-line'}}>
                     {messages[currentMessage].text}
@@ -130,7 +130,7 @@ const Home = () => {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -50 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.5 , delay: 2}}
                 >
                   <Typography variant="body1" component="p" style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.7)', whiteSpace: 'pre-line'}}>
                     {messages[currentMessage].text}

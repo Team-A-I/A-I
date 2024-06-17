@@ -23,11 +23,11 @@ function App() {
         }}
       >
         <Toolbar> 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 , fontWeight: 'bold' , fontSize:'22px'}} >
-            Sentiment Analysis App
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 , fontWeight: 'bold' , fontSize:'24px'}} >
+            Sentiment Analysis
           </Typography>
-          <Button color="inherit" component={Link} style={{ fontWeight: 'bold' , fontSize:'20px'}} to="/">Home</Button>
-          <Button color="inherit" component={Link} style={{ fontWeight: 'bold' , fontSize:'20px'}} to="/analysis">Analysis</Button>
+          <Button color="inherit" component={Link} style={{ fontWeight: '400' , fontSize:'21px'}} to="/">Home</Button>
+          <Button color="inherit" component={Link} style={{ fontWeight: '400' , fontSize:'21px'}} to="/analysis">Analysis</Button>
         </Toolbar>
       </AppBar>
       <Routes>

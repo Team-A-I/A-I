@@ -44,7 +44,7 @@ function Analysis() {
   });
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" style={{ marginTop: '64px' }}>
       <Swiper
         grabCursor={true}
         centeredSlides={true}
