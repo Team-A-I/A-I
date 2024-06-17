@@ -27,6 +27,7 @@ function Analysis() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // 페이지 이동
     navigate('/load', { state: { file: file }});
   };
 
