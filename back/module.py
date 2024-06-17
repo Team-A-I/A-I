@@ -2,13 +2,6 @@ from collections import defaultdict
 from datetime import datetime
 import re
 from transformers import pipeline
-from itertools import islice
-import nltk
-nltk.download('punkt')
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-
-model = AutoModelForSeq2SeqLM.from_pretrained('eenzeenee/t5-small-korean-summarization')
-tokenizer = AutoTokenizer.from_pretrained('eenzeenee/t5-small-korean-summarization')
 
 classifier = pipeline("sentiment-analysis", model="nlp04/korean_sentiment_analysis_kcelectra")
 
@@ -341,32 +334,32 @@ def convert_to_24h_time(am_pm, time):
     return hour, minute
 
 
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+# from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 
-model1 = MBartForConditionalGeneration.from_pretrained("SnypzZz/Llama2-13b-Language-translate")
-tokenizer1 = MBart50TokenizerFast.from_pretrained("SnypzZz/Llama2-13b-Language-translate", src_lang="en_XX")
+# model1 = MBartForConditionalGeneration.from_pretrained("SnypzZz/Llama2-13b-Language-translate")
+# tokenizer1 = MBart50TokenizerFast.from_pretrained("SnypzZz/Llama2-13b-Language-translate", src_lang="en_XX")
 
 
-# 번역 모델 - 영->한 번역 + URL처리X 그대로 전송
-def translate_message(message):
-    encoded_input = tokenizer1(message, return_tensors="pt", padding=True, truncation=True)
-    generated_tokens = model1.generate(**encoded_input, forced_bos_token_id=tokenizer1.lang_code_to_id["ko_KR"])
-    translated_message = tokenizer1.batch_decode(generated_tokens, skip_special_tokens=True)[0]
-    return translated_message
+# # 번역 모델 - 영->한 번역 + URL처리X 그대로 전송
+# def translate_message(message):
+#     encoded_input = tokenizer1(message, return_tensors="pt", padding=True, truncation=True)
+#     generated_tokens = model1.generate(**encoded_input, forced_bos_token_id=tokenizer1.lang_code_to_id["ko_KR"])
+#     translated_message = tokenizer1.batch_decode(generated_tokens, skip_special_tokens=True)[0]
+#     return translated_message
 
-def process_dialogues(lines):
-    processed_lines = parse_dialogues(lines)
+# def process_dialogues(lines):
+#     processed_lines = parse_dialogues(lines)
 
-    if processed_lines is None:
-        raise ValueError("parse_dialogues returned None")
+#     if processed_lines is None:
+#         raise ValueError("parse_dialogues returned None")
 
-    translated_messages = []  # 번역된 메시지들을 담을 리스트
+#     translated_messages = []  # 번역된 메시지들을 담을 리스트
 
-    for line in processed_lines:
-        if not line.startswith("http"):  # URL이 아닌 경우에만 번역 수행
-            translated_message = translate_message(line)
-            translated_messages.append(translated_message)
-        else:
-            translated_messages.append(line)  # URL은 그대로 추가
+#     for line in processed_lines:
+#         if not line.startswith("http"):  # URL이 아닌 경우에만 번역 수행
+#             translated_message = translate_message(line)
+#             translated_messages.append(translated_message)
+#         else:
+#             translated_messages.append(line)  # URL은 그대로 추가
     
-    return translated_messages
+#     return translated_messages
