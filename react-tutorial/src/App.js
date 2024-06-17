@@ -12,8 +12,8 @@ import './css/App.css';
 function App() {
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar position="static" sx={{ zIndex: 2  }}>
+        <Toolbar  sx={{ zIndex: 2  }}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Sentiment Analysis App
           </Typography>
