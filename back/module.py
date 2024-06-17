@@ -347,7 +347,7 @@ model1 = MBartForConditionalGeneration.from_pretrained("SnypzZz/Llama2-13b-Langu
 tokenizer1 = MBart50TokenizerFast.from_pretrained("SnypzZz/Llama2-13b-Language-translate", src_lang="en_XX")
 
 
-# 번역 모델 - 영/한 & URL번역금지
+# 번역 모델 - 영->한 번역 + URL처리X 그대로 전송
 def translate_message(message):
     encoded_input = tokenizer1(message, return_tensors="pt", padding=True, truncation=True)
     generated_tokens = model1.generate(**encoded_input, forced_bos_token_id=tokenizer1.lang_code_to_id["ko_KR"])
