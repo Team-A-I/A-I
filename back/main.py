@@ -36,7 +36,7 @@ async def upload_file(file: UploadFile):
         result = parse_dialogues(lines)
         dialogues, combined_dialogues = organize_dialogues(result)
         resultOk = 'y'
-        if len(dialogues) > 2:
+        if len(dialogues) != 2:
             resultOk = 'n'
             return resultOk
         else:

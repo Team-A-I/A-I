@@ -47,6 +47,7 @@ const Highlight = (summary_answer) => {
       variant="outlined"
       sx={{
         pb: 0,
+        height: '550px'
       }}
     >
       <CardContent

@@ -30,7 +30,13 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
   const seriesPie2 = Object.values(sentimentScores[userNames[1]]);
 
   return (
-    <Card variant="outlined">
+    <Card
+      variant="outlined"
+      sx={{
+        pb: 0,
+        height: '550px'
+      }}
+    >
       <CardContent>
         <Box
           sx={{
@@ -45,11 +51,12 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
             <Typography
               variant="h3"
               sx={{
-                marginBottom: "0",
+                marginBottom: "15px",
+                fontWeight: "bold",
               }}
               gutterBottom
             >
-              Emotion Ratio
+              화자별 감정 분포
             </Typography>
           </Box>
         </Box>
@@ -68,16 +75,22 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
                 xs: "100%",
               },
               mb: 3,
+              textAlign: 'center'
             }}
           >
-            <Typography variant="h5" gutterBottom>{userNames[0]}</Typography>
+            <Typography variant="h5" gutterBottom 
+              sx={{
+                fontWeight: "bold",
+              }}>
+              {userNames[0]}
+              </Typography>
             <Chart
               options={optionsPie1}
               series={seriesPie1}
               type="pie"
               height="380px"
             />
-            <Typography variant="h6" sx={{ mt: 2 }}>
+            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" }}>
               호감도: {(affinityScores[userNames[0]] * 100).toFixed(2)}%
             </Typography>
           </Box>
@@ -88,16 +101,22 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
                 xs: "100%",
               },
               mb: 3,
+              textAlign: 'center'
             }}
           >
-            <Typography variant="h5" gutterBottom>{userNames[1]}</Typography>
+            <Typography variant="h5" gutterBottom
+            sx={{
+              fontWeight: "bold",
+            }}>
+              {userNames[1]}
+              </Typography>
             <Chart
               options={optionsPie2}
               series={seriesPie2}
               type="pie"
               height="380px"
             />
-            <Typography variant="h6" sx={{ mt: 2 }}>
+            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" }}>
               호감도: {(affinityScores[userNames[1]] * 100).toFixed(2)}%
             </Typography>
           </Box>
