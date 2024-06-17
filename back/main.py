@@ -4,7 +4,9 @@ from module import (
     analyze_sentiments, organize_dialogues, parse_dialogues, 
     calculate_percentage_scores, calculate_affinity, 
     calculate_daily_message_counts, chunk_list, summarize,
-    calculate_reply_gaps  # 새로 추가된 함수 import
+    calculate_reply_gaps,
+    process_dialogues
+    # 새로 추가된 함수 import
 )
 from module_llm import format_summary, llm_summary
 
@@ -30,20 +32,29 @@ async def upload_file(file: UploadFile):
         contents = await file.read()
         lines = contents.decode('utf-8').splitlines()
 
+        #lines 다음에 영어만 번역하고, URL은 번역 안하도록 설정
+        processed_dialogues = process_dialogues(lines)
+
+
+
         # 로그 추가
-        #print("Uploaded file contents:", lines)
+        # print("\n========================================================\n")
+        # print("Uploaded file contents:", lines)
 
         result = parse_dialogues(lines)
         dialogues, combined_dialogues = organize_dialogues(result)
 
         # 데이터 구조 확인을 위해 로그 추가
-        #print("Parsed dialogues:", dialogues)
-        #print("Combined dialogues:", combined_dialogues)
+        # print("\n========================================================\n")
+        # print("Parsed dialogues:", dialogues)
+        # print("\n========================================================\n")
+        # print("Combined dialogues:", combined_dialogues)
 
         names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2 = analyze_sentiments(dialogues, combined_dialogues)
 
         # 로그 추가
-        #print("Sentiment analysis results:", names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2)
+        # print("\n========================================================\n")
+        # print("Sentiment analysis results:", names, score, scoreList, mixed_results, sentiment_avg_scores, check_score, scoreList2)
 
         # 백분율 계산
         sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
@@ -57,7 +68,8 @@ async def upload_file(file: UploadFile):
 
         # 답장 텀 계산
         reply_gaps = calculate_reply_gaps(combined_dialogues)
-        #print("Reply Gaps in main.py:", reply_gaps)  # 로그 추가
+        # print("\n========================================================\n")
+        # print("Reply Gaps in main.py:", reply_gaps)  # 로그 추가
 
        #대화 요약
         chunks = chunk_list(mixed_results,5)
@@ -80,8 +92,9 @@ async def upload_file(file: UploadFile):
             "reply_gaps": reply_gaps,  # 답장 텀 추가된 부분
             "summary_mixed_results": final_summary
         }
+        #print("\n========================================================\n")
         #print("Final Result in main.py:", result)  # 최종 결과 로그 추가
-        return result
+        return result, processed_dialogues
     except Exception as e:
         print("Error in main.py:", str(e))  # 오류 로그 추가
         return {"error": str(e)}
