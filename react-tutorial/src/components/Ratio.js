@@ -90,7 +90,7 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
               type="pie"
               height="380px"
             />
-            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" }}>
+            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" , fontSize:"20px" , color:"1B1B1B"}}>
               호감도: {(affinityScores[userNames[0]] * 100).toFixed(2)}%
             </Typography>
           </Box>
@@ -116,7 +116,7 @@ const Ratio = ({ sentimentScores, affinityScores }) => {
               type="pie"
               height="380px"
             />
-            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" }}>
+            <Typography variant="h6" sx={{ mt: 3, fontWeight: "bold" , fontSize:"20px" , color:"1B1B1B"}}>
               호감도: {(affinityScores[userNames[1]] * 100).toFixed(2)}%
             </Typography>
           </Box>

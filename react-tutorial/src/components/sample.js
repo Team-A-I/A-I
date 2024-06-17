@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Box, Grid, useTheme } from "@mui/material";
-import Chart from "react-apexcharts";
+import { Card, CardContent, Typography, Box, Grid} from "@mui/material";
 import chartAvarage from "../images/chart_avarage.png"; 
 import term from "../images/term.png"; 
 

@@ -1,12 +1,10 @@
 import React from "react";
-import { Card, CardContent, Typography, Box, Grid, useTheme } from "@mui/material";
+import { Card, CardContent, Typography, Box, Grid} from "@mui/material";
 import Chart from "react-apexcharts";
 import greenlight from "../images/greenlight.jpg"; 
 
 
 const Average = ({ averageDailyMessageCounts }) => {
-
-  const theme = useTheme();
 
   if (!averageDailyMessageCounts || Object.keys(averageDailyMessageCounts).length === 0) {
     return null; // averageDailyMessageCounts가 없으면 아무것도 렌더링하지 않음
@@ -110,7 +108,7 @@ const Average = ({ averageDailyMessageCounts }) => {
         gutterBottom
       >
         40개 이상은 받으셨나요?
-        <img src={greenlight} style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
+        <img src={greenlight} alt="greenlight" style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
       </Typography>
     </Card>
   );

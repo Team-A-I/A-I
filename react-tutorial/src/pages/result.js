@@ -30,12 +30,13 @@ function Test() {
 
   return (
     
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}  >
       <Box
         sx={{
           maxWidth: "1400px", 
           margin: "0 auto",
           padding: "20px",
+          marginTop: "64px"
         }}
       >
         <Grid container spacing={2}>
