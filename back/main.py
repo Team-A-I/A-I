@@ -4,9 +4,7 @@ from module import (
     analyze_sentiments, organize_dialogues, parse_dialogues, 
     calculate_percentage_scores, calculate_affinity, 
     calculate_daily_message_counts, chunk_list, summarize,
-    calculate_reply_gaps,
-    process_dialogues
-    # 새로 추가된 함수 import
+    calculate_reply_gaps  # 새로 추가된 함수 import
 )
 from module_llm import format_summary, llm_summary
 
@@ -32,18 +30,11 @@ async def upload_file(file: UploadFile):
         contents = await file.read()
         lines = contents.decode('utf-8').splitlines()
 
-        #lines 다음에 영어만 번역하고, URL은 번역 안하도록 설정
-        processed_dialogues = process_dialogues(lines)
-
-
-
         # 로그 추가
-        # print("\n========================================================\n")
-        # print("Uploaded file contents:", lines)
+        #print("Uploaded file contents:", lines)
 
         result = parse_dialogues(lines)
         dialogues, combined_dialogues = organize_dialogues(result)
-
         resultOk = 'y'
         if len(dialogues) > 2:
             resultOk = 'n'
@@ -54,7 +45,6 @@ async def upload_file(file: UploadFile):
 
             # 백분율 계산
             sentiment_avg_scores_percentage = calculate_percentage_scores(sentiment_avg_scores)
-
 
             # 호감도 계산
             affinity_scores = {name: calculate_affinity(scores) for name, scores in sentiment_avg_scores.items()}
@@ -106,7 +96,7 @@ async def upload_file(file: UploadFile):
                 "reply_gaps": reply_gaps,  # 답장 텀 추가된 부분
             }
         #print("Final Result in main.py:", result)  # 최종 결과 로그 추가
-        return result, processed_dialogues
+        return result
 
     except Exception as e:
         print("Error in main.py:", str(e))  # 오류 로그 추가
