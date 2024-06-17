@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import '../css/Load.css';
 import Stack from '@mui/material/Stack';
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress, {
+  circularProgressClasses,
+} from '@mui/material/CircularProgress';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import axios from 'axios'; 
 import { useLocation, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -11,6 +15,12 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {style} from '../css/modal.js'
 import Alert from '@mui/material/Alert';
+import Group_34 from '../images/Group 34.png';
+import Group_35 from '../images/Group 35.png';
+import Group_36 from '../images/Group 36.png';
+import Group_37 from '../images/Group 37.png';
+import Group_38 from '../images/Group 38.png';
+import Group_39 from '../images/Group 39.png';
 
 function Load() {
   //페이지 이동 함수 생성
@@ -70,14 +80,119 @@ function Load() {
     handleSubmit();
   }, [handleSubmit]);
 
+  
+  const images = [Group_34, Group_35, Group_36, Group_37, Group_38, Group_39];
+
+  function GradientCircularProgress() {
+
+    const [currentImage, setCurrentImage] = useState(images[0]);
+
+    useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImage((prevImage) => {
+        const currentIndex = images.indexOf(prevImage);
+        const nextIndex = (currentIndex + 1) % images.length;
+        return images[nextIndex];
+      });
+    }, 8000); // 10초 간격
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+    return (
+      <div style={{ position: 'relative', display: 'inline-block', width: '450px', height: '450px' }}>
+        <svg width={0} height={0}>
+          <defs>
+            <linearGradient id="my_gradient" x1="0%" y1="0%" x2="0%" y2="90%">
+              <stop offset="10%" stopColor="#73B9FF15" />
+              <stop offset="20%" stopColor="#73B9FF10" />
+              <stop offset="50%" stopColor="#1976D230" />
+              <stop offset="70%" stopColor="#1976D2" />
+              <stop offset="100%" stopColor="#F28188" />
+            </linearGradient>
+          </defs>
+        </svg>
+  
+        <CircularProgress
+          variant="determinate"
+          sx={{
+            color: '#73B9FF15'
+          }}
+          size={450}
+          thickness={1}
+          value={100}
+        />
+        <CircularProgress 
+          size={450}
+          thickness={1}
+          disableShrink
+          sx={{ 
+            'svg circle': { stroke: 'url(#my_gradient)' },
+            animationDuration: '10000ms',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            [`& .${circularProgressClasses.circle}`]: {
+              strokeLinecap: 'round',
+            },
+          }} 
+        />
+        {currentImage && (
+        <img
+          src={currentImage}
+          alt="centered"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '320px',
+            height: '200px',
+            borderRadius: '50%',
+          }}
+          />
+        )}
+      </div>
+    );
+  }
+
+  const createBlinkAnimation = (delay) => keyframes`
+  0% { opacity: 0; }
+  ${delay}% { opacity: 1; }
+  ${delay + 33}% { opacity: 0; }
+  100% { opacity: 0; }
+`;
+
+const Dot = styled.span`
+  font-size: 1.5em;
+  display: inline-block;
+`;
+
+const Dot1 = styled(Dot)`
+  animation: ${createBlinkAnimation(0)} 3s infinite;
+`;
+
+const Dot2 = styled(Dot)`
+  animation: ${createBlinkAnimation(33)} 3s infinite;
+`;
+
+const Dot3 = styled(Dot)`
+  animation: ${createBlinkAnimation(66)} 3s infinite;
+`;
+  
   return (
     <>
-        <h1>대화를 분석하고 있습니다. 잠시만 기다려주세요.</h1>
-        <div>
-        <Stack sx={{ color: 'grey.500'}} spacing={2} direction="row" className='box'>
-            <CircularProgress />
-        </Stack>
-        </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Stack sx={{ color: 'grey.500' }} spacing={5} direction="column" className='box' alignItems="center">
+      <GradientCircularProgress/>
+      <Typography variant="h5" component="p" gutterBottom style={{ marginTop: '40px', fontWeight:'bold' }}>
+        Loading      
+        <Dot1>.</Dot1>
+        <Dot2>.</Dot2>
+        <Dot3>.</Dot3>
+      </Typography>
+    </Stack>
+  </div>
         <Modal
           open={open}
           onClose={handleClose}
