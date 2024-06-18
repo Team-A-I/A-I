@@ -75,10 +75,10 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px;">
     <h3>메인 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/home.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home1.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home2.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home3.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/main.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/main1.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/main2.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/main3.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 20px;">
 </div>
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px;">
