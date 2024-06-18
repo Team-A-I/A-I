@@ -1,6 +1,6 @@
 from langserve import RemoteRunnable
 
-chain = RemoteRunnable("https://gnat-suited-weekly.ngrok-free.app/prompt")
+chain = RemoteRunnable("http://127.0.0.1:8000/prompt")
 
 def llm_summary(topic):
     # topic_string = ' '.join(topic)
