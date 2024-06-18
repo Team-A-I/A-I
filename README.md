@@ -66,7 +66,7 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 ---
 
 <h2>기술 스택</h2>
-<img src="https://ultimatum-project.s3.ap-northeast-2.amazonaws.com/%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D.png" alt="기술 스택">
+<img src="https://jeonghyun.s3.amazonaws.com/%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D.png" alt="기술 스택">
 
 ---
 ## 화면 구성 📺
