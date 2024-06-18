@@ -31,10 +31,9 @@
 .home-text {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   text-align: right;
   position: relative;
-  margin-right: 10px;
 }
 
 
@@ -268,3 +267,83 @@
   }
 }
 
+/* 수정된 부분 */
+@media (max-width: 768px) {
+  .home-container {
+    height: auto;
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    padding: 20px 0;
+    margin-left: 0;
+  }
+
+  .message-left,
+  .message-right {
+    width: 80%;
+    margin: 10px auto;
+    text-align: left;
+  }
+
+  .message-left {
+    margin-left: 0;
+  }
+
+  .message-right {
+    margin-left: 0;
+  }
+  .overlay {
+    height: 100%; /* 오버레이의 높이를 조정 */
+    background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
+  }
+}
+
+/* 960px 이하의 화면에 대한 스타일 */
+@media (max-width: 960px) {
+  .home-section {
+    height: auto; /* 높이를 자동으로 조절 */
+    padding: 20px; /* 패딩 추가 */
+    background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+  }
+
+  .message-left, .message-right {
+    width: 80%; /* 메시지의 너비를 줄임 */
+    margin-left: 10%; /* 메시지를 가운데 정렬 */
+  }
+  .overlay {
+    height: 100%; /* 오버레이의 높이를 조정 */
+    background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
+  }
+}
+
+/* 600px 이하의 화면에 대한 스타일 */
+@media (max-width: 600px) {
+  .home-section {
+    height: auto; /* 높이를 자동으로 조절 */
+    padding: 10px; /* 패딩 추가 */
+    background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+  }
+
+  .message-left, .message-right {
+    width: 90%; /* 메시지의 너비를 줄임 */
+    margin-left: 5%; /* 메시지를 가운데 정렬 */
+    font-size: 14px; /* 폰트 크기 줄임 */
+    padding: 8px; /* 패딩 줄임 */
+  }
+  .overlay {
+    height: 100%; /* 오버레이의 높이를 조정 */
+    background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
+  }
+}
