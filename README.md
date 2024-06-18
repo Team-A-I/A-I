@@ -1,6 +1,8 @@
 <h2>프로젝트 소개</h2>
 
-<h1 align="center">AI 채팅 감정 분석 서비스</h1>
+<div style="text-align: center;">
+   <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=AI 채팅 감정 분석 서비스&fontSize=90"  alt=""/>
+</div>
 
 <p align="center">
   AI 감정분석 모델을 사용해 사용자가 대화내용을 업로드하면 <br/>
