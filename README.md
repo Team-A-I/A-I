@@ -42,10 +42,10 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 - 가상환경
 
 ```
-파이썬 버전3.10
+파이썬 버전 3.10
 ```
 
-- fornt
+- front
 
 ```
 패키지 설치 npm install
