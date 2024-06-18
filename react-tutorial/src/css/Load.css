@@ -1,0 +1,33 @@
+.box
+{
+    display: flex;
+    justify-content: center;
+}
+
+#modal-modal-title{
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 13px;
+}
+
+#button-box{
+    display: flex;
+    justify-content: right;
+    margin-top: 25px;
+}
+
+#modal-text{
+    margin-left: 50px;
+}
+
+#modal-box{
+    border-radius: 10px;
+}
+
+.progrees {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

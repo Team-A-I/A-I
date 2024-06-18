@@ -12,7 +12,7 @@
 ## 브런치 전략
 
 - Git Flow 를 기반으로 Github 을 활용한 Github Flow 를 선호
-- Git Flow → https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html
+- Git Flow → [https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html](https://velog.io/@kw2577/Git-branch-%EC%A0%84%EB%9E%B5)
 
 ## Code Convention
 
@@ -28,10 +28,11 @@
 - 이해하기 어려운 약어는 가급적 지양
 
 ## Commit Message
-
-- 커밋 메시지는 간결하고 짧게 구성한다.
-- 많은 파일은 커밋하기 보다 적은 파일의 수로 커밋한다.
-- 하나의 커밋에 하나의 목적만 있는게 좋다.
+[Feature] - 개발에 관한 기능일경우
+[Hotfix] - 오류 fix 에 대한 기능 
+- 커밋 메시지는 간결하고 짧게 구성한다. (첫줄만 출력) 
+- 많은 파일은 커밋하기 보다 적은 파일의 수로 커밋한다. (자주하기 !)
+- 하나의 커밋에 하나의 목적만 있는게 좋다. (기능별로 커밋)
 
 ## Code Review
 
