@@ -1,7 +1,7 @@
 <h2>프로젝트 소개</h2>
 
 <div style="text-align: center;">
-   <img src="https://capsule-render.vercel.app/api?type=venom&color=auto&height=300&section=header&text=capsule%20render&fontSize=90" />
+   <img src="https://capsule-render.vercel.app/api?type=venom&color=auto&height=300&section=header&text=A:I&fontSize=90" />
 </div>
 
 <p align="center">
