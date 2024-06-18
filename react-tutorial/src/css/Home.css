@@ -1,4 +1,4 @@
-
+/* 세션 1,2,3,4 전체 컨테이터 */
 .home-container {
   height: 110vh;
   width: 100vw;
@@ -9,25 +9,41 @@
   
 }
 
+/* 세션1 의 백그라운드 세션 */
+.home-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 103vh; /* 화면을 꽉 채우도록 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 세션1의 백그라운드를 덮는 overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 101%;
+  background-color: rgba(0, 0, 0, 0.2); /* 어두운 오버레이 */
+  z-index: 1;
+}
+
+/* 세션1 전체컨테이너 바로안쪽 그리드 (3분할) */
 .home-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   z-index: 2;
-  color: white; /* 텍스트 색상 변경, 필요에 따라 조정 가능 */
+  color: white; 
 }
 
 
 
-.home-gif {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* 세션 2, 3, 4 전체그리드 안에 2분할한 grid 내용 */
 .home-text {
   display: flex;
   flex-direction: column;
@@ -36,68 +52,7 @@
   position: relative;
 }
 
-
-@media (max-width: 960px) {
-  .home-text {
-    padding-left: 20px; /* 작은 화면에서 패딩 감소 */
-  }
-
-  .home-text-header {
-    font-size: 20px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text h1 {
-    font-size: 28px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text p {
-    font-size: 16px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-}
-
-
-.full-width-section {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-}
-
-.home-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-
-.image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.main-image {
-  width: 100%;
-  max-width: 650px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image1 {
-  width: 100%;
-  max-width: 650px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-
-
+/* 세션 2, 3, 4 전체그리드 안에 2분할한 grid 내용의 h1,header,header1,p 스타일링 */
 .home-text h1 {
   font-weight: 900;
   color: #38393F;
@@ -118,56 +73,35 @@
   font-weight: bold;
 }
 
+
+/* 세션 2, 3, 4 이미지 프레임 */
+.home-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 세션 2, 3, 4 이미지 */
+.image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 세션 2,3,4 밑에 회색 텍스트 */
 .second-text {
   color: #8E9097;
   font-weight: bold;
   font-size: 35px;
 }
 
-.scroll-to-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-.home-section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 103vh; /* 화면을 꽉 채우도록 설정 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 101%;
-  background-color: rgba(0, 0, 0, 0.2); /* 어두운 오버레이 */
-  z-index: 1;
-}
-
-
-.scroll-to-top-btn:hover {
-  background-color: #0056b3;
-  color:#ffffff;
-}
-
+/* 최상단으로 올라가는 버튼 */
 .scroll-to-top-btn {
   position: fixed;
   bottom: 20px;
@@ -178,13 +112,18 @@
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 5;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.scroll-to-top-btn.show {
-  display: block;
+/* 최상단으로 올라가는 버튼 (커서올릴때 효과) */
+.scroll-to-top-btn:hover {
+  background-color: #0056b3;
+  color:#ffffff;
 }
 
+
+/* 세션1의 왼쪽메시지 프레임 */
 .message-left {
   background-color: rgba(255, 255, 255, 0.3); /* 흰색 배경에 50% 투명도 */
   color: black;
@@ -197,6 +136,7 @@
   width: 50%;
 }
 
+/* 세션1의 오른쪽메시지 프레임 */
 .message-right {
   background-color: rgba(255, 235, 59, 0.3); /* 노란색 배경에 50% 투명도 */
   color: black;
@@ -210,26 +150,24 @@
 }
 
 
-
-@media (max-width: 960px) {
-  .home-text {
-    padding-left: 20px; /* 작은 화면에서 패딩 감소 */
-  }
-
-  .home-text-header {
-    font-size: 20px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text h1 {
-    font-size: 28px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text p {
-    font-size: 16px; /* 작은 화면에서 폰트 크기 감소 */
-  }
-}
-
+/* 600px 이하의 화면에 대한 반응형 */
 @media (max-width: 600px) {
+  .home-section {
+    height: auto; /* 높이를 자동으로 조절 */
+    padding: 10px; /* 패딩 추가 */
+    background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+  }
+
+  .message-left, .message-right {
+    width: 90%; /* 메시지의 너비를 줄임 */
+    margin-left: 5%; /* 메시지를 가운데 정렬 */
+    font-size: 14px; /* 폰트 크기 줄임 */
+    padding: 8px; /* 패딩 줄임 */
+  }
+  .overlay {
+    height: 100%; /* 오버레이의 높이를 조정 */
+    background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
+  }
   .home-text {
     padding-left: 10px; /* 더 작은 화면에서 패딩 감소 */
     text-align: center; /* 텍스트 중앙 정렬 */
@@ -248,26 +186,7 @@
   }
 }
 
-@media (max-width: 600px) {
-  .home-text {
-    padding-left: 10px; /* 더 작은 화면에서 패딩 감소 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-  }
-
-  .home-text-header {
-    font-size: 18px; /* 더 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text h1 {
-    font-size: 24px; /* 더 작은 화면에서 폰트 크기 감소 */
-  }
-
-  .home-text p {
-    font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
-  }
-}
-
-/* 수정된 부분 */
+/* 768px 이하의 화면에 대한 반응형 */
 @media (max-width: 768px) {
   .home-container {
     height: auto;
@@ -310,7 +229,7 @@
   }
 }
 
-/* 960px 이하의 화면에 대한 스타일 */
+/* 960px 이하의 화면에 대한 반응형 */
 @media (max-width: 960px) {
   .home-section {
     height: auto; /* 높이를 자동으로 조절 */
@@ -326,24 +245,19 @@
     height: 100%; /* 오버레이의 높이를 조정 */
     background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
   }
-}
-
-/* 600px 이하의 화면에 대한 스타일 */
-@media (max-width: 600px) {
-  .home-section {
-    height: auto; /* 높이를 자동으로 조절 */
-    padding: 10px; /* 패딩 추가 */
-    background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+  .home-text {
+    padding-left: 20px; /* 작은 화면에서 패딩 감소 */
   }
 
-  .message-left, .message-right {
-    width: 90%; /* 메시지의 너비를 줄임 */
-    margin-left: 5%; /* 메시지를 가운데 정렬 */
-    font-size: 14px; /* 폰트 크기 줄임 */
-    padding: 8px; /* 패딩 줄임 */
+  .home-text-header {
+    font-size: 20px; /* 작은 화면에서 폰트 크기 감소 */
   }
-  .overlay {
-    height: 100%; /* 오버레이의 높이를 조정 */
-    background-color: rgba(0, 0, 0, 0.5); /* 오버레이의 불투명도 조정 */
+
+  .home-text h1 {
+    font-size: 28px; /* 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 16px; /* 작은 화면에서 폰트 크기 감소 */
   }
 }

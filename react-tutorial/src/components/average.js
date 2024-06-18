@@ -4,32 +4,37 @@ import Chart from "react-apexcharts";
 import greenlight from "../images/greenlight.jpg"; 
 
 
+// averageDailyMessageCounts가 없거나 비어 있으면 아무것도 렌더링하지 않음
 const Average = ({ averageDailyMessageCounts }) => {
 
   if (!averageDailyMessageCounts || Object.keys(averageDailyMessageCounts).length === 0) {
     return null; // averageDailyMessageCounts가 없으면 아무것도 렌더링하지 않음
   }
 
+  // averageDailyMessageCounts 객체의 키(사용자 이름)를 가져와서 userNames 배열에 저장합니다.
   const userNames = Object.keys(averageDailyMessageCounts);
+
+
+  // 각 사용자의 평균 메시지 개수를 소수점 없는 정수로 변환하여 배열로 저장 + 소수점 없는 정수로 변환
   const series = [{
     name: "하루평균 메시지 개수",
-    data: userNames.map(name => Math.round(averageDailyMessageCounts[name])) // 소수점 없는 정수로 변환
+    data: userNames.map(name => Math.round(averageDailyMessageCounts[name])) 
   }];
 
   const options = {
     chart: {
-      type: 'bar',
+      type: 'bar',   // 차트 타입을 'bar'로 설정
       toolbar: {
         show: false
       }
     },
     plotOptions: {
       bar: {
-        horizontal: false
+        horizontal: false  // 수평 막대 차트를 사용하지 않음
       }
     },
-    dataLabels: {
-      enabled: true,
+    dataLabels: { 
+      enabled: true,  // 데이터 라벨 활성화
       formatter: function (val) {
         return Math.round(val); // 소수점 없는 정수로 표시
       }
@@ -42,7 +47,7 @@ const Average = ({ averageDailyMessageCounts }) => {
       }
     },
     xaxis: {
-      categories: userNames,
+      categories: userNames,  // x축 카테고리로 사용자 이름을 설정
       title: {
         text: ''
       }
@@ -53,12 +58,13 @@ const Average = ({ averageDailyMessageCounts }) => {
       }
     },
     legend: {
-      position: 'bottom'
+      position: 'bottom'   // 범례를 하단에 배치
     },
-    colors: "#38b000" // 원하는 색상으로 설정 "#38b000"
+    colors: "#38b000"  // 막대 색상을 설정
   };
 
   return (
+    // 외곽선이 있는 MUI Card 컴포넌트
     <Card variant="outlined"
     sx={{
         pb: 0,
