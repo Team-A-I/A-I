@@ -120,6 +120,8 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 ## 아키텍처 ⛓
 <img src="https://jeonghyun.s3.amazonaws.com/project.png" alt="아키텍처">
 
+---
+
 # A-I : 깃허브 규칙
 ## READ ME
 
