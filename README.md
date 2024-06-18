@@ -13,7 +13,7 @@
 ---
 
 <h2>프로젝트 기간</h2>
-<div style="text-align: center;">
+<div align="center">
 2024-06-10 ~ 2024-06-18 (총8일간)
 </div>
 
