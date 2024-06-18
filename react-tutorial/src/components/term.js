@@ -4,24 +4,27 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import greenlight from "../images/greenlight.jpg"; 
 
-ChartJS.register(...registerables);
+ChartJS.register(...registerables); // Chart.js를 등록합니다.
 
 const Term = ({ replyGaps }) => {
   // gap이 200 이하인 데이터만 필터링
   const filteredReplyGaps = replyGaps.filter(entry => entry.gap <= 200);
   
+  // 유저 이름을 변수에 저장합니다.
   const userNames1 = replyGaps[0].from
   const userNames2 = replyGaps[0].to
+
+  // 차트에 사용할 데이터와 설정을 정의합니다.
   const data = {
     labels: filteredReplyGaps.map((_, index) => index + 1), // 메시지 순서 (1, 2, 3, ...)
     datasets: [
       {
-        label: '상대방과의 카톡 답장시간',
+        label: '상대방과의 카톡 답장시간', // 데이터셋의 라벨
         data: filteredReplyGaps.map(entry => entry.gap), // 각 메시지 간의 시간 차이
         fill: false,
-        backgroundColor: '#38b000',
-        borderColor: '#38b000',
-      },
+        backgroundColor: '#38b000', // 데이터셋의 배경색
+        borderColor: '#38b000', // 데이터셋의 테두리 색
+      }, 
     ],
   };
 
@@ -36,8 +39,8 @@ const Term = ({ replyGaps }) => {
         },
       },
       y: {
-        beginAtZero: true,
-        max: 200, 
+        beginAtZero: true, // y축의 시작점을 0으로 설정
+        max: 200,   // y축의 최대값을 200으로 설정
         title: {
           display: true,
           text: '시간 (분)'
@@ -50,40 +53,26 @@ const Term = ({ replyGaps }) => {
   };
 
   return (
-    <Card variant="outlined"
-    sx={{
-        pb: 0,
-        height: '450px'
-      }}>
+    // MUI Card 컴포넌트를 사용하여 외곽선이 있는 카드 레이아웃을 생성합니다.
+    <Card variant="outlined" sx={{pb: 0, height: '450px'}}>
       <CardContent>
         <Box
           sx={{
-            display: {
-              sm: "flex",
-              xs: "block",
+            display: { 
+              sm: "flex", // 작은 화면(sm)에서는 flex 레이아웃을 사용합니다.
+              xs: "block", // 초소형 화면(xs)에서는 block 레이아웃을 사용합니다.
             },
-            alignItems: "flex-start",
-            flexDirection: "column"
+            alignItems: "flex-start", // 아이템들을 상단 정렬합니다.
+            flexDirection: "column" // 아이템들을 세로로 정렬합니다.
           }}
         >
-          {/* <Box sx={{ mt: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            <Box
-              component="img"
-              alt="Sample"
-              src={term}
-              sx={{
-                maxWidth: '100%',
-                height: 'auto',
-              }}
-            />
-          </Box> */}
         <Typography
           sx={{
           fontWeight: "bold",
           fontSize: "h5.fontSize",
           marginBottom: "0",
           }}
-          gutterBottom
+          gutterBottom  // 하단 여백을 추가하는 MUI의 기본 설정입니다.
         >
           {userNames1}님과 {userNames2}님의 답장 속도
         </Typography>

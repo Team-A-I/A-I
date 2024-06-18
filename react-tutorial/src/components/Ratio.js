@@ -2,21 +2,27 @@ import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import Chart from "react-apexcharts";
 
+  // sentimentScores 또는 affinityScores가 없으면 컴포넌트를 렌더링하지 않습니다.
 const Ratio = ({ sentimentScores, affinityScores }) => {
   if (!sentimentScores || !affinityScores) {
-    return null; // 데이터가 없으면 아무것도 렌더링하지 않음
+    return null; 
   }
-
+  
+  // sentimentScores 객체의 키(사용자 이름)를 가져와서 userNames 배열에 저장합니다.
   const userNames = Object.keys(sentimentScores);
 
   // 첫 번째 사용자 차트 데이터
   const optionsPie1 = {
+    // 첫 번째 사용자의 감정 점수의 키(감정 유형)를 라벨로 사용합니다
     labels: Object.keys(sentimentScores[userNames[0]]),
+    // 차트의 색상을 설정합니다.
     colors: ["#00E396", "#FF4560", "#FEB019", "#008FFB", "#775DD0", "#D4526E", "#FEB019", "#FF4560"],
     legend: {
-      position: 'bottom'
-    }
+      position: 'bottom' // 범례를 하단에 배치합니다.
+    } 
   };
+
+  // 첫 번째 사용자의 감정 점수의 값을 시리즈로 사용합니다.
   const seriesPie1 = Object.values(sentimentScores[userNames[0]]);
 
   // 두 번째 사용자 차트 데이터
