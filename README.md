@@ -75,23 +75,24 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px;">
     <h3>메인 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/home1.png" alt="메인 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home2.png" alt="메인 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home3.png" alt="메인 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/home4.png" alt="메인 페이지" style="width: 700px; max-width: 700px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/home.png" alt="메인 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/home1.png" alt="메인 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/home2.png" alt="메인 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/home3.png" alt="메인 페이지" style="width: 800px; max-width: 800px;">
 </div>
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px;">
     <h3>업로드 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/analysis.png" alt="업로드 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/load.png" alt="로딩 페이지" style="width: 700px; max-width: 700px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/load1.png" alt="업로드 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/load2.png" alt="로딩 페이지" style="width: 800px; max-width: 800px;">
+   <img src="https://jeonghyun.s3.amazonaws.com/load3.png" alt="로딩 페이지" style="width: 800px; max-width: 800px;">
 </div>
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px;">
     <h3>결과 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/result1.png" alt="결과 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/result2.png" alt="결과 페이지" style="width: 700px; max-width: 700px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/result3.png" alt="결과 페이지" style="width: 700px; max-width: 700px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/result.png" alt="결과 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/result2.png" alt="결과 페이지" style="width: 800px; max-width: 800px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/result3.png" alt="결과 페이지" style="width: 800px; max-width: 800px;">
 </div>
 
 
