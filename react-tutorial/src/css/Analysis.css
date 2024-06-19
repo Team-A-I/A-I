@@ -1,88 +1,108 @@
 /* Analysis.css */
 .chart-container {
-    width: 400px;
-    height: 400px;
-    margin: 0 auto;
-  }
-  
-  h1, h2, h3 {
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    flex-wrap : wrap;
-  }
-  
-  button {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
 
-  .upImg{
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-  }
+h1, h2, h3 {
+  text-align: center;
+}
 
-  .fileName{
-    margin: 0 12px;
-  }
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap : wrap;
+}
 
-  .anaContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
-    margin-bottom: 25px;
-  }
-
-  .anaImage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-
-  .AnalysisImg{
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 20px;
-    padding-left: 16px;
-  }
-
-  .anaText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    position: relative;
-    padding-left: 50px;
-    padding-right: 16px;
-  }
-
-  .anaText h1 {
-    font-weight: 900;
-    color: #38393F;
-  }
-  
-  .anaText-header {
-    font-size: 25px;
-    color: #38393F;
-  }
-  
-  .anaText p {
-    color: #8E9097;
-    font-weight: bold;
-  }
+button {
+  margin-left: 10px;
+  margin-top: 10px;
+}
 
 
-  .swiper-button-prev, .swiper-button-next {
-    margin-left: -12px;
-    margin-right: -12px; 
-  }
+.upImg{
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+}
+
+.fileName{
+  margin: 0 12px;
+}
+
+.anaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  margin-bottom: 25px;
+}
+
+.anaImage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.AnalysisImg{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  padding-left: 16px;
+}
+
+.anaText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  padding-left: 50px;
+  padding-right: 16px;
+}
+
+.anaText h1 {
+  font-weight: 900;
+  color: #38393F;
+}
+
+.anaText-header {
+  font-size: 25px;
+  color: #38393F;
+}
+
+.anaText p {
+  color: #8E9097;
+  font-weight: bold;
+}
+
+
+.swiper-button-prev, .swiper-button-next {
+  margin-left: -12px;
+  margin-right: -12px; 
+}
+
+.formTitle{
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+.formFileName{
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+.formSpace{
+  display:none;
+}
+@media (max-width: 600px){
+.formFileName{
+  display:none;
+}
+
+}
 
