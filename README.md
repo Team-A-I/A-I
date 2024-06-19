@@ -1,10 +1,13 @@
 <h2>프로젝트 소개</h2>
 
 <p align='center'>
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20채팅%20감정%20분석기&fontSize=90&animation=fadeIn&fontAlignY=38&desc=AI%20Chat%20Emotion%20Analyzer%20🤭&descAlignY=51&descAlign=62"/>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20Chat%20Emotion%20Analyzer&fontSize=90&animation=fadeIn&fontAlignY=38&descAlignY=51&descAlign=62"/>
 </p>
 
 
+<p align="center" style="font-weight:bold;">
+    AI 채팅 감정 분석기
+</p>
 <p align="center">
   AI 감정분석 모델을 사용해 사용자가 대화내용을 업로드하면 <br/>
   시간별 감정변화, 감정별 비율 차트화, 일별평균 카톡량, 답장텀 그래프화를해서 <br/>
