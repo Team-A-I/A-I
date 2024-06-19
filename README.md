@@ -1,8 +1,8 @@
 <h2>프로젝트 소개</h2>
 
-<div style="text-align: center;">
-   <img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=AI 채팅 감정 분석기&fontSize=90" />
-</div>
+<p align='center'>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20채팅%20감정%20분석기&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Decorate%20GitHub%20Profile%20or%20any%20Repo%20like%20me!&descAlignY=51&descAlign=62"/>
+</p>
 
 
 <p align="center">
