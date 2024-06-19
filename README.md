@@ -1,7 +1,7 @@
 <h2>프로젝트 소개</h2>
 
 <p align='center'>
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20채팅%20감정%20분석기&fontSize=90&animation=fadeIn&fontAlignY=38&desc=AI%20Chat&20Emotion%20Analyzer%20🤭&descAlignY=51&descAlign=62"/>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20채팅%20감정%20분석기&fontSize=90&animation=fadeIn&fontAlignY=38&desc=AI%20Chat%20Emotion%20Analyzer%20🤭&descAlignY=51&descAlign=62"/>
 </p>
 
 
