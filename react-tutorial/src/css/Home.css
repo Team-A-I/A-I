@@ -150,7 +150,94 @@
   margin-left: 180px;
   width: 50%;
 }
+/* 390px 이하의 화면에 대한 반응형 */
+@media (max-width: 390px) {
 
+  .home-container {
+    height: auto;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .home-section {
+    height: 100vh; /* 높이를 100%로 유지 */
+    padding: 10px; /* 패딩 추가 */
+    background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+    width: 100vw; /* 전체 너비 */
+    margin-left: 0; /* 마진 제거 */
+    background-image: url('../images/mobile.png');
+  }
+
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    width: 100%; /* 콘텐츠 너비를 100%로 유지 */
+    height: 100%; /* 콘텐츠 높이를 100%로 유지 */
+  }
+
+  .message-left, .message-right {
+    display: none; /* 작은 화면에서 메시지 숨기기 */
+  }
+
+  .button {
+    margin-top: 20px !important;
+    padding: 5px 20px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+  }
+  
+  .home-text {
+    padding-left: 10px; /* 더 작은 화면에서 패딩 감소 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+
+  .home-text-header {
+    font-size: 18px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text-header1 {
+    font-size: 15px !important; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text h1 {
+    font-size: 24px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .home-text p {
+    font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .first-text h1{
+    font-size: 24px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  .first-text p{
+    font-size: 14px; /* 더 작은 화면에서 폰트 크기 감소 */
+  }
+
+  /* 최상단으로 올라가는 버튼 */
+  .scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    background-color: #ffffff;
+    color: #007bff;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 최상단으로 올라가는 버튼 (커서올릴때 효과) */
+  .scroll-to-top-btn:hover {
+    background-color: #0056b3;
+    color:#ffffff;
+  }
+}
 
 /* 600px 이하의 화면에 대한 반응형 */
 @media (max-width: 600px) {
