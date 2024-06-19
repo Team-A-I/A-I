@@ -42,7 +42,7 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 ## Team
 |<img src="https://avatars.githubusercontent.com/u/109562023?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/131740215?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/143330992?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/150677044?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/159854114?v=4" width="150" height="150"/>|
 |:-:|:-:|:-:|:-:|:-:|
-|권회은<br/>[@heweun](https://github.com/heweun)|강지윤<br/>[@jiyun1013](https://github.com/jiyun1013)|김현석<br/>[@hyunseok92](https://github.com/hyunseok92)|정상엽<br/>[@catapracts](https://github.com/catapracts)|배정현<br/>[@baejeonghyun23](https://github.com/baejeonghyun23)|
+|권회은(팀장!)<br/>[@heweun](https://github.com/heweun)|강지윤<br/>[@jiyun1013](https://github.com/jiyun1013)|김현석<br/>[@hyunseok92](https://github.com/hyunseok92)|정상엽<br/>[@catapracts](https://github.com/catapracts)|배정현<br/>[@baejeonghyun23](https://github.com/baejeonghyun23)|
 
 * **권회은**: 모델 생성/추론 + 화면 출력 + 배포
 * **강지윤**: 화면 UI/UX + PPT 작성
