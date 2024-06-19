@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 
 function Analysis() {
   const [file, setFile] = useState(null);
@@ -42,6 +43,9 @@ function Analysis() {
     whiteSpace: 'nowrap',
     width: 1,
   });
+
+  const matches = useMediaQuery('(max-width:600px)');
+  let itemXsValue = matches ? 6 : 4;
 
   return (
     <Container maxWidth="lg" style={{ marginTop: '64px' }}>
@@ -142,20 +146,26 @@ function Analysis() {
       </Typography>
 
       <form onSubmit={handleSubmit}>
-        <Grid className="formBox">
-          <Button
-            component="label"
-            role={undefined}
-            variant="contained"
-            tabIndex={-1}
-            startIcon={<CloudUploadIcon />}
-            className='fileBtn'
-          >
-            Upload file
-            <VisuallyHiddenInput type="file" accept=".txt" onChange={handleFileChange} /> {/* 파일 선택 시 handleFileChange 함수 호출 */}
-          </Button>
-          {fileName && <span className="fileName">{fileName}</span>} {/* 파일명이 있을 경우 화면에 표시 */}
-          <Button variant="outlined" type="submit">Upload</Button>
+        <Grid className="formBox" container spacing={2}>
+          <Grid item xs={itemXsValue} className="formTitle">
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+              className='fileBtn'
+            >
+              Upload file
+              <VisuallyHiddenInput type="file" accept=".txt" onChange={handleFileChange} /> {/* 파일 선택 시 handleFileChange 함수 호출 */}
+            </Button>
+          </Grid>
+          <Grid item xs={itemXsValue} className="formFileName">
+            {fileName && <span className="fileName">{fileName}</span>} {/* 파일명이 있을 경우 화면에 표시 */}
+          </Grid>
+          <Grid item xs={itemXsValue} className="formTitle">
+            <Button variant="outlined" type="submit">Upload</Button>
+          </Grid>
         </Grid>
       </form>
     </Container>

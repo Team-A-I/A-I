@@ -1,3 +1,138 @@
+<h2>프로젝트 소개</h2>
+
+<p align='center'>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=AI%20Chat%20Emotion%20Analyzer&fontSize=60&animation=fadeIn&fontAlignY=38&descAlignY=51&descAlign=62"/>
+</p>
+
+
+<h3 align="center">
+    AI 채팅 감정 분석기
+</h3>
+<p align="center">
+  AI 감정분석 모델을 사용해 사용자가 대화내용을 업로드하면 <br/>
+  시간별 감정변화, 감정별 비율 차트화, 일별평균 카톡량, 답장텀 그래프화를해서 <br/>
+  사용자가 한눈에 정보들을 알아보고 흥미있게 볼수있도록 제공하는 서비스입니다.<br/>
+</p>
+
+---
+
+<h2>프로젝트 기간 📆 </h2>
+<div align="center">
+2024-06-10 ~ 2024-06-18 (총8일간)
+</div>
+
+---
+
+<h2>팀 소개 👨‍👩‍👦‍👦</h2>
+
+<div style="text-align: center;">
+   <img src="https://capsule-render.vercel.app/api?type=venom&color=auto&height=300&section=header&text=A:I&fontSize=90" />
+</div>
+
+<div align="center">
+  <p>저희팀 A:I의 :(콜론)은 수학 공식에서 등식이나 비율을 표현할 때 쓰는 기호입니다.<br/>
+A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지능이라는 공식이 성립되어<br/>
+인간과 같은 지능을 가진 똑똑한 AI를 만들겠다는 마음가짐으로 만들어진 팀입니다.</p>
+</div>
+
+---
+
+<h2>팀원 소개 </h2>
+
+## Team
+|<img src="https://avatars.githubusercontent.com/u/109562023?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/131740215?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/143330992?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/150677044?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/159854114?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|:-:|
+|권회은(팀장!)<br/>[@heweun](https://github.com/heweun)|강지윤<br/>[@jiyun1013](https://github.com/jiyun1013)|김현석<br/>[@hyunseok92](https://github.com/hyunseok92)|정상엽<br/>[@catapracts](https://github.com/catapracts)|배정현<br/>[@baejeonghyun23](https://github.com/baejeonghyun23)|
+
+* **권회은**: 모델 생성/추론 + 화면 출력 + 배포
+* **강지윤**: 화면 UI/UX + PPT 작성
+* **김현석**: 모델 생성/추론 + 데이터 후처리(차트화) + 배포
+* **정상엽**: 모델 성능테스트 + 발표준비/발표
+* **배정현**: 화면 UI/UX + 데이터 후처리(차트화)
+
+---
+
+<h2>시작 가이드</h2>
+
+- 가상환경
+
+```
+파이썬 버전 3.10
+```
+
+- front
+
+```
+패키지 설치 npm install
+```
+```
+실행 npm start
+```
+
+- back
+  
+```
+패키지 설치 pip install -r requirements.txt
+```
+```
+실행 uvicorn main:app --reload --port=5000
+```
+
+---
+
+<h2>기술 스택</h2>
+<img src="https://jeonghyun.s3.amazonaws.com/%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D.png" alt="기술 스택">
+
+---
+## 화면 구성 📺
+
+<div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
+    <h3>메인 페이지</h3>
+    <img src="https://jeonghyun.s3.amazonaws.com/1.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/2.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/3.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/4.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+</div>
+
+<div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
+    <h3>업로드 페이지</h3>
+    <img src="https://jeonghyun.s3.amazonaws.com/5.png" alt="업로드 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/6.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+   <img src="https://jeonghyun.s3.amazonaws.com/7.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+</div>
+
+<div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
+    <h3>결과 페이지</h3>
+    <img src="https://jeonghyun.s3.amazonaws.com/8.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/9.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/10.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+</div>
+
+
+
+---
+
+## 주요 기능 📦
+
+### ⭐️ 카카오톡 대화내용 텍스트 추출 업로드시 감정분석
+- 11가지 감정으로 대화에서 분석해서 결과로 나타낸다.
+- 나온 결과로 가중치를 설정해 호감도를 도출해낸다.
+### ⭐️ LLM을 사용한 대화내용 요약
+- 업로드한 대화내용을 LLM 모델을 돌려서 간단하게 5줄요약해서 사용자에게 보여준다
+### ⭐️ 결과페이지 결과값 차트화
+- 시간별 감정변화를 한눈에 볼수있는 차트로 시각화
+- 대화내용중에 나온 감정별로 차지하는 비율을 차트로 시각화
+- 하루평균 대화량 차트로 시각화
+- 전체대화의 답장텀을 차트로 시각화
+
+
+---
+
+## 아키텍처 ⛓
+<img src="https://jeonghyun.s3.amazonaws.com/project.png" alt="아키텍처">
+
+---
+
 # A-I : 깃허브 규칙
 ## READ ME
 
