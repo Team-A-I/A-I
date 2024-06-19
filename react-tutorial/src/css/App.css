@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+.Nav-header {
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 24px !important;
+}
+.Nav {
+  font-weight: 400 !important;
+  font-size: 20px !important;
+}
+
+@media (max-width: 600px) {
+  .Nav {
+    font-weight: 400 !important;
+    font-size: 16px !important;
+  }
+  .Nav-header {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 20px !important;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
