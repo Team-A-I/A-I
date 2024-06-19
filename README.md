@@ -5,9 +5,9 @@
 </p>
 
 
-<p align="center" style="font-weight:bold;">
+<h3 align="center">
     AI 채팅 감정 분석기
-</p>
+</h3>
 <p align="center">
   AI 감정분석 모델을 사용해 사용자가 대화내용을 업로드하면 <br/>
   시간별 감정변화, 감정별 비율 차트화, 일별평균 카톡량, 답장텀 그래프화를해서 <br/>
