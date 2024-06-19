@@ -1,8 +1,7 @@
 <h2>프로젝트 소개</h2>
+<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=AI 채팅 감정 분석기&fontSize=90" />
 
-<div style="text-align: center;">
-   <img src="https://capsule-render.vercel.app/api?type=venom&color=auto&height=300&section=header&text=A:I&fontSize=90" />
-</div>
+
 
 <p align="center">
   AI 감정분석 모델을 사용해 사용자가 대화내용을 업로드하면 <br/>
@@ -21,8 +20,11 @@
 
 <h2>팀 소개 👨‍👩‍👦‍👦</h2>
 
+<div style="text-align: center;">
+   <img src="https://capsule-render.vercel.app/api?type=venom&color=auto&height=300&section=header&text=A:I&fontSize=90" />
+</div>
+
 <div align="center">
-  <h3><strong>A:I👨‍💻</strong></h3>
   <p>저희팀 A:I의 :(콜론)은 수학 공식에서 등식이나 비율을 표현할 때 쓰는 기호입니다.<br/>
 A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지능이라는 공식이 성립되어<br/>
 인간과 같은 지능을 가진 똑똑한 AI를 만들겠다는 마음가짐으로 만들어진 팀입니다.</p>
