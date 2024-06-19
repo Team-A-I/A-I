@@ -73,8 +73,6 @@ const Home = () => {
     <Container maxWidth="lg" className="home-container">
       {/* 세션1 */}
       <Grid className="home-section" >
-        {/* 오버레이를 추가하여 배경 이미지 위에 반투명한 레이어를 생성 */}
-        <div className="overlay"></div>
         <Grid container className="home-content">
            {/* 왼쪽 열 */}
           <Grid item xs={12} md={4}>
@@ -134,7 +132,7 @@ const Home = () => {
                   color="primary"
                   component={Link}
                   to="/analysis"
-                  style={{ marginTop: '30px', padding: '10px 60px', fontSize: '15px', fontWeight: 'bold' }}
+                  className='button'
                 >
                   알아보러 가기 
                 </Button>

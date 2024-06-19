@@ -46,13 +46,13 @@ function App() {
         style={{ display: isHome && isScrolled ? 'none' : 'flex' }}
       >
         <Toolbar sx={{zIndex: 3}}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', fontSize: '24px' }}>
+          <Typography variant="h6" component="div" className='Nav-header'>
             Sentiment Analysis
           </Typography>
 
           {/* 네비게이션 버튼들 */}
-          <Button color="inherit" component={Link} style={{ fontWeight: '400', fontSize: '21px' }} to="/">Home</Button>
-          <Button color="inherit" component={Link} style={{ fontWeight: '400', fontSize: '21px' }} to="/analysis">Analysis</Button>
+          <Button color="inherit" component={Link} className='Nav' to="/">Home</Button>
+          <Button color="inherit" component={Link} className='Nav' to="/analysis">Analysis</Button>
         </Toolbar>
       </AppBar>
 
