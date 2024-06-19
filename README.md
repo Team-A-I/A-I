@@ -88,24 +88,24 @@ A = Artificial, I = Intelligence죠. 인간이 의도적으로 만든 것 = 지�
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
     <h3>메인 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/main.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/main2.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/main3.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/main4.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/1.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/2.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/3.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/4.png" alt="메인 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
 </div>
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
     <h3>업로드 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/load1.png" alt="업로드 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/load2.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-   <img src="https://jeonghyun.s3.amazonaws.com/load3.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/5.png" alt="업로드 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/6.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+   <img src="https://jeonghyun.s3.amazonaws.com/7.png" alt="로딩 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
 </div>
 
 <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 100px;">
     <h3>결과 페이지</h3>
-    <img src="https://jeonghyun.s3.amazonaws.com/result.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/result2.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
-    <img src="https://jeonghyun.s3.amazonaws.com/result3.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/8.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/9.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
+    <img src="https://jeonghyun.s3.amazonaws.com/10.png" alt="결과 페이지" style="width: 800px; max-width: 800px; margin-bottom: 100px;">
 </div>
 
 
