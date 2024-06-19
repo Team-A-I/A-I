@@ -10,7 +10,6 @@ import '../css/Home.css';
 import gifImage from '../images/some.gif'; 
 import chartImage from '../images/chart.png'; 
 import averageImage from '../images/average.png'; 
-import backgroundImage from '../images/background6.png';
 import logo from '../images/logo.png';
 
 const Home = () => {
@@ -73,7 +72,7 @@ const Home = () => {
   return (
     <Container maxWidth="lg" className="home-container">
       {/* 세션1 */}
-      <Grid className="home-section" style={{ backgroundImage: `url(${backgroundImage})`, width: '100vw', marginLeft: 'calc(-50vw + 49.3%)' }}>
+      <Grid className="home-section" >
         {/* 오버레이를 추가하여 배경 이미지 위에 반투명한 레이어를 생성 */}
         <div className="overlay"></div>
         <Grid container className="home-content">
@@ -104,7 +103,7 @@ const Home = () => {
               )}
             </AnimatePresence>
           </Grid>
-          <Grid item xs={12} md={4}> 
+          <Grid item xs={12} md={4} className="first-text"> 
             {/* 가운데 열 */}
             <motion.div
               initial={{ opacity: 0, y: 50 }} // 초기 애니메이션 상태: 투명도 0, 아래쪽으로 50px 이동
@@ -123,10 +122,10 @@ const Home = () => {
               <Typography variant="h3" component="h1" gutterBottom>
                 AI 채팅 <span style={{ fontSize: '1.2em', color: 'rgb(246,225,148)', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', fontWeight: 'bold' }}>감정</span> 분석기
               </Typography>
-              <Typography variant="body1" component="p" gutterBottom style={{ marginTop: '25px', fontSize: '25px' }}>
+              <Typography variant="body1" component="p" gutterBottom style={{ marginTop: '25px'}}>
                 AI기반으로 채팅내용을 분석하여 
               </Typography>
-              <Typography variant="body1" component="p" gutterBottom style={{ fontSize: '25px' }}>
+              <Typography variant="body1" component="p" gutterBottom >
                 상대방의 감정을 알아보세요
               </Typography>
               <ScrollLink to="second-section" smooth={true} duration={1000}>
